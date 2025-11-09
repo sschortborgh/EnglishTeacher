@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clase de Inglés A1 para Adolescentes</title>
-    <link rel="stylesheet" href="./style.css"> 
+    <link rel="stylesheet" href="./styles.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -63,7 +63,44 @@
         </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section interactive-activities">
+        <h2>¡A Jugar! Actividades Interactivas</h2>
+
+        <div class="activity-card">
+            <h4>Activity 1: Fill in the Blanks (Completa los espacios)</h4>
+            <p>Escucha la canción y arrastra las palabras del banco para completar la letra.</p>
+            
+            <div class="word-bank" id="word-bank">
+                </div>
+
+            <div class="lyrics-container">
+                <p>It feels like a perfect <span class="drop-zone" data-correct="night"></span> To dress up like <span class="drop-zone" data-correct="hipsters"></span>
+                And make <span class="drop-zone" data-correct="fun"></span> of our exes, uh uh, uh uh.</p>
+                <p>It feels like a perfect <span class="drop-zone" data-correct="night"></span> For <span class="drop-zone" data-correct="dancing"></span> at midnight
+                To fall in love with strangers, uh uh, uh uh.</p>
+                <p>Yeah, We’re <span class="drop-zone" data-correct="happy"></span>, free, confused and lonely at the same time,
+                It’s miserable and magical, oh yeah. Tonight’s the <span class="drop-zone" data-correct="night"></span>
+                When we forget about the <span class="drop-zone" data-correct="deadlines"></span>, it’s time, oh oh.</p>
+                <p>I don’t know about <span class="drop-zone" data-correct="you"></span>. But I’m feeling <span class="drop-zone" data-correct="22"></span>.
+                Everything will be all <span class="drop-zone" data-correct="right"></span> If you keep me next to you.</p>
+                <p>You don’t know about me, But I bet you want to.
+                Everything will be alright If we just keep <span class="drop-zone" data-correct="dancing"></span>, like we’re 22.</p>
+            </div>
+            <button class="check-button" onclick="checkFillInTheBlanks()">Verificar Respuestas</button>
+            <p id="fill-in-result" class="result-message"></p>
+        </div>
+
+        <div class="activity-card">
+            <h4>Activity 2: Vocabulary Match (Emparejar)</h4>
+            <p>Selecciona una palabra en inglés y luego su traducción en español.</p>
+            <div class="match-grid" id="match-grid">
+                </div>
+            <p id="match-result" class="result-message"></p>
+        </div>
+
+    </section>
+
+    <section class="content-section vocabulary-section">
         <h2>English Vocabulary A1 for Teenagers</h2>
 
         <div class="vocabulary-grid">
@@ -108,6 +145,25 @@
             </div>
             
             <div class="vocab-card">
+                [cite_start]<h3>Home and Family / Casa y familia [cite: 7]</h3>
+                <table>
+                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <tbody>
+                        [cite_start]<tr><td>house</td><td>casa [cite: 8]</td></tr>
+                        [cite_start]<tr><td>room</td><td>habitación [cite: 8]</td></tr>
+                        [cite_start]<tr><td>kitchen</td><td>cocina [cite: 8]</td></tr>
+                        [cite_start]<tr><td>bathroom</td><td>baño [cite: 8]</td></tr>
+                        [cite_start]<tr><td>bed</td><td>cama [cite: 8]</td></tr>
+                        [cite_start]<tr><td>chair</td><td>silla [cite: 8]</td></tr>
+                        [cite_start]<tr><td>table</td><td>mesa [cite: 8]</td></tr>
+                        [cite_start]<tr><td>TV</td><td>televisor [cite: 8]</td></tr>
+                        [cite_start]<tr><td>window</td><td>ventana [cite: 8]</td></tr>
+                        [cite_start]<tr><td>door</td><td>puerta [cite: 8]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="vocab-card">
                 [cite_start]<h3>Daily Routine / Rutina diaria [cite: 9]</h3>
                 <table>
                     <thead><tr><th>English</th><th>Español</th></tr></thead>
@@ -147,43 +203,6 @@
                 </table>
             </div>
 
-             <div class="vocab-card">
-                [cite_start]<h3>Clothes / Ropa [cite: 15]</h3>
-                <table>
-                    <thead><tr><th>English</th><th>Español</th></tr></thead>
-                    <tbody>
-                        [cite_start]<tr><td>shirt</td><td>camisa [cite: 16]</td></tr>
-                        [cite_start]<tr><td>pants</td><td>pantalones [cite: 16]</td></tr>
-                        [cite_start]<tr><td>dress</td><td>vestido [cite: 16]</td></tr>
-                        [cite_start]<tr><td>shoes</td><td>zapatos [cite: 16]</td></tr>
-                        [cite_start]<tr><td>jacket</td><td>chaqueta [cite: 16]</td></tr>
-                        [cite_start]<tr><td>skirt</td><td>falda [cite: 16]</td></tr>
-                        [cite_start]<tr><td>T-shirt</td><td>camiseta [cite: 16]</td></tr>
-                        [cite_start]<tr><td>socks</td><td>medias [cite: 16]</td></tr>
-                        [cite_start]<tr><td>hat</td><td>sombrero / gorra [cite: 16]</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="vocab-card">
-                [cite_start]<h3>Useful Expressions / Expresiones útiles [cite: 21]</h3>
-                <table>
-                    <thead><tr><th>English</th><th>Español</th></tr></thead>
-                    <tbody>
-                        [cite_start]<tr><td>Hello / Hi</td><td>Hola [cite: 22]</td></tr>
-                        [cite_start]<tr><td>How are you?</td><td>¿Cómo estás? [cite: 22]</td></tr>
-                        [cite_start]<tr><td>"I’m fine, thanks"</td><td>"Estoy bien, gracias" [cite: 22]</td></tr>
-                        [cite_start]<tr><td>What’s your name?</td><td>¿Cómo te llamas? [cite: 22]</td></tr>
-                        [cite_start]<tr><td>Nice to meet you</td><td>Encantado de conocerte [cite: 22]</td></tr>
-                        [cite_start]<tr><td>See you later</td><td>Nos vemos luego [cite: 22]</td></tr>
-                        [cite_start]<tr><td>Thank you</td><td>Gracias [cite: 22]</td></tr>
-                        [cite_start]<tr><td>You’re welcome</td><td>De nada [cite: 22]</td></tr>
-                        [cite_start]<tr><td>Please</td><td>Por favor [cite: 22]</td></tr>
-                        [cite_start]<tr><td>Sorry</td><td>Lo siento [cite: 22]</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
             <div class="vocab-card">
                 [cite_start]<h3>Free Time and Hobbies / Tiempo libre y pasatiempos [cite: 13]</h3>
                 <table>
@@ -199,6 +218,24 @@
                         [cite_start]<tr><td>play football</td><td>jugar fútbol [cite: 14]</td></tr>
                         [cite_start]<tr><td>go out</td><td>salir [cite: 14]</td></tr>
                         [cite_start]<tr><td>chat</td><td>chatear [cite: 14]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="vocab-card">
+                [cite_start]<h3>Clothes / Ropa [cite: 15]</h3>
+                <table>
+                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <tbody>
+                        [cite_start]<tr><td>shirt</td><td>camisa [cite: 16]</td></tr>
+                        [cite_start]<tr><td>pants</td><td>pantalones [cite: 16]</td></tr>
+                        [cite_start]<tr><td>dress</td><td>vestido [cite: 16]</td></tr>
+                        [cite_start]<tr><td>shoes</td><td>zapatos [cite: 16]</td></tr>
+                        [cite_start]<tr><td>jacket</td><td>chaqueta [cite: 16]</td></tr>
+                        [cite_start]<tr><td>skirt</td><td>falda [cite: 16]</td></tr>
+                        [cite_start]<tr><td>T-shirt</td><td>camiseta [cite: 16]</td></tr>
+                        [cite_start]<tr><td>socks</td><td>medias [cite: 16]</td></tr>
+                        [cite_start]<tr><td>hat</td><td>sombrero / gorra [cite: 16]</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -223,7 +260,7 @@
                 </table>
             </div>
             
-             <div class="vocab-card">
+            <div class="vocab-card">
                 [cite_start]<h3>Places in Town / Lugares de la ciudad [cite: 19]</h3>
                 <table>
                     <thead><tr><th>English</th><th>Español</th></tr></thead>
@@ -238,6 +275,25 @@
                         [cite_start]<tr><td>library</td><td>biblioteca [cite: 20]</td></tr>
                         [cite_start]<tr><td>bus stop</td><td>parada de bus [cite: 20]</td></tr>
                         [cite_start]<tr><td>street</td><td>calle [cite: 20]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="vocab-card">
+                [cite_start]<h3>Useful Expressions / Expresiones útiles [cite: 21]</h3>
+                <table>
+                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <tbody>
+                        [cite_start]<tr><td>Hello / Hi</td><td>Hola [cite: 22]</td></tr>
+                        [cite_start]<tr><td>How are you?</td><td>¿Cómo estás? [cite: 22]</td></tr>
+                        [cite_start]<tr><td>"I’m fine, thanks"</td><td>"Estoy bien, gracias" [cite: 22]</td></tr>
+                        [cite_start]<tr><td>What’s your name?</td><td>¿Cómo te llamas? [cite: 22]</td></tr>
+                        [cite_start]<tr><td>Nice to meet you</td><td>Encantado de conocerte [cite: 22]</td></tr>
+                        [cite_start]<tr><td>See you later</td><td>Nos vemos luego [cite: 22]</td></tr>
+                        [cite_start]<tr><td>Thank you</td><td>Gracias [cite: 22]</td></tr>
+                        [cite_start]<tr><td>You’re welcome</td><td>De nada [cite: 22]</td></tr>
+                        [cite_start]<tr><td>Please</td><td>Por favor [cite: 22]</td></tr>
+                        [cite_start]<tr><td>Sorry</td><td>Lo siento [cite: 22]</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -270,78 +326,280 @@
                         [cite_start]<tr><td>sleep</td><td>I sleep early. [cite: 28][cite_start]</td><td>I don’t sleep early. [cite: 28][cite_start]</td><td>Do you sleep early? [cite: 28][cite_start]</td><td>He sleeps early. [cite: 28]</td></tr>
                     </tbody>
                 </table>
-                
-                </div>
-        </div>
 
-        <div class="activities-container">
-            <h3>Actividades</h3>
-            <div class="activity-card">
-                [cite_start]<h4>Activity 1: Fill in the blanks (Completa los espacios) [cite: 35]</h4>
-                <p>Escucha la canción y completa las palabras que faltan. [cite_start]Usa las palabras en el banco. [cite: 36]</p>
-                <div class="word-bank">
-                    [cite_start]**Banco de Palabras:** breakfast – hipsters – fun – night – deadlines – happy - night – right – dancing – you – 22 – night [cite: 37]
-                </div>
-                <pre class="lyrics">
-[cite_start]It feels like a perfect **night** [cite: 39] [cite_start]To dress up like **hipsters** [cite: 39]
-[cite_start]And make **fun** [cite: 39] of our exes, uh uh, uh uh.
-[cite_start]It feels like a perfect **night** [cite: 40] [cite_start]For **dancing** [cite: 40] at midnight
-To fall in love with strangers, uh uh, uh uh.
-[cite_start]Yeah,We’re **happy**[cite: 41], free, confused and lonely at the same time,
-[cite_start]It’s miserable and magical, oh yeah.Tonight’s the **night** [cite: 41]
-[cite_start]When we forget about the **deadlines**[cite: 41], it’s time, oh oh.
-[cite_start]I don’t know about **you**. [cite: 42] [cite_start]But I’m feeling **22**[cite: 42].
-[cite_start]Everything will be all **right** [cite: 42] If you keep me next to you.
-You don’t know about me, But I bet you want to.
-[cite_start]Everything will be alright If we just keep **dancing**, like we’re 22. [cite: 43]
-                </pre>
-            </div>
-
-            <div class="activity-card">
-                [cite_start]<h4>Activity 2: Vocabulary Match [cite: 44]</h4>
-                [cite_start]<p>Empareja las palabras de la canción con sus significados en español. [cite: 45]</p>
+                [cite_start]<h4>Tiempo libre [cite: 29]</h4>
                 <table>
-                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <thead><tr><th>Verb</th><th>Affirmative</th><th>Negative</th><th>Interrogative</th><th>Third Person</th></tr></thead>
                     <tbody>
-                        [cite_start]<tr><td>night</td><td>noche [cite: 46]</td></tr>
-                        [cite_start]<tr><td>dancing</td><td>bailar [cite: 46]</td></tr>
-                        [cite_start]<tr><td>fun</td><td>diversión [cite: 46]</td></tr>
-                        [cite_start]<tr><td>feel</td><td>sentirse [cite: 46]</td></tr>
-                        [cite_start]<tr><td>right</td><td>correcto [cite: 46]</td></tr>
-                        [cite_start]<tr><td>breakfast</td><td>desayuno [cite: 46]</td></tr>
-                        [cite_start]<tr><td>heartbreak</td><td>corazón roto [cite: 46]</td></tr>
-                        [cite_start]<tr><td>friends</td><td>amigos [cite: 46]</td></tr>
+                        [cite_start]<tr><td>listen</td><td>I listen to music. [cite: 30][cite_start]</td><td>I don’t listen to music. [cite: 30][cite_start]</td><td>Do you listen to music? [cite: 30][cite_start]</td><td>She listens to music. [cite: 30]</td></tr>
+                        [cite_start]<tr><td>read</td><td>I read books. [cite: 30][cite_start]</td><td>I don’t read books. [cite: 30][cite_start]</td><td>Do you read books? [cite: 30][cite_start]</td><td>He reads books. [cite: 30]</td></tr>
+                        [cite_start]<tr><td>dance</td><td>I dance at parties. [cite: 30][cite_start]</td><td>I don’t dance at parties. [cite: 30][cite_start]</td><td>Do you dance at parties? [cite: 30][cite_start]</td><td>She dances at parties. [cite: 30]</td></tr>
+                        [cite_start]<tr><td>draw</td><td>I draw in my notebook. [cite: 30][cite_start]</td><td>I don’t draw in my notebook. [cite: 30][cite_start]</td><td>Do you draw in your notebook? [cite: 30][cite_start]</td><td>He draws in his notebook. [cite: 30]</td></tr>
+                        [cite_start]<tr><td>play</td><td>I play video games. [cite: 30][cite_start]</td><td>I don’t play video games. [cite: 30][cite_start]</td><td>Do you play video games? [cite: 30][cite_start]</td><td>She plays video games. [cite: 30]</td></tr>
+                    </tbody>
+                </table>
+
+                [cite_start]<h4>Comida y bebidas [cite: 31]</h4>
+                <table>
+                    <thead><tr><th>Verb</th><th>Affirmative</th><th>Negative</th><th>Interrogative</th><th>Third Person</th></tr></thead>
+                    <tbody>
+                        [cite_start]<tr><td>eat</td><td>I eat rice. [cite: 32][cite_start]</td><td>I don’t eat rice. [cite: 32][cite_start]</td><td>Do you eat rice? [cite: 32][cite_start]</td><td>He eats rice. [cite: 32]</td></tr>
+                        [cite_start]<tr><td>drink</td><td>I drink water. [cite: 32][cite_start]</td><td>I don’t drink water. [cite: 32][cite_start]</td><td>Do you drink water? [cite: 32][cite_start]</td><td>She drinks water. [cite: 32]</td></tr>
+                        [cite_start]<tr><td>cook</td><td>I cook dinner. [cite: 32][cite_start]</td><td>I don’t cook dinner. [cite: 32][cite_start]</td><td>Do you cook dinner? [cite: 32][cite_start]</td><td>He cooks dinner. [cite: 32]</td></tr>
+                        [cite_start]<tr><td>like</td><td>I like apples. [cite: 32][cite_start]</td><td>I don’t like apples. [cite: 32][cite_start]</td><td>Do you like apples? [cite: 32][cite_start]</td><td>She likes apples. [cite: 32]</td></tr>
+                        [cite_start]<tr><td>want</td><td>I want juice. [cite: 32][cite_start]</td><td>I don’t want juice. [cite: 32][cite_start]</td><td>Do you want juice? [cite: 32][cite_start]</td><td>He wants juice. [cite: 32]</td></tr>
+                    </tbody>
+                </table>
+
+                [cite_start]<h4>Escuela [cite: 33]</h4>
+                <table>
+                    <thead><tr><th>Verb</th><th>Affirmative</th><th>Negative</th><th>Interrogative</th><th>Third Person</th></tr></thead>
+                    <tbody>
+                        [cite_start]<tr><td>study</td><td>I study math. [cite: 34][cite_start]</td><td>I don’t study math. [cite: 34][cite_start]</td><td>Do you study math? [cite: 34][cite_start]</td><td>He studies math. [cite: 34]</td></tr>
+                        [cite_start]<tr><td>write</td><td>I write in my notebook. [cite: 34][cite_start]</td><td>I don’t write in my notebook. [cite: 34][cite_start]</td><td>Do you write in your notebook? [cite: 34][cite_start]</td><td>She writes in her notebook. [cite: 34]</td></tr>
+                        [cite_start]<tr><td>read</td><td>I read in class. [cite: 34][cite_start]</td><td>I don’t read in class. [cite: 34][cite_start]</td><td>Do you read in class? [cite: 34][cite_start]</td><td>He reads in class. [cite: 34]</td></tr>
+                        [cite_start]<tr><td>help</td><td>I help my teacher. [cite: 34][cite_start]</td><td>I don’t help my teacher. [cite: 34][cite_start]</td><td>Do you help your teacher? [cite: 34][cite_start]</td><td>She helps her teacher. [cite: 34]</td></tr>
+                        [cite_start]<tr><td>use</td><td>I use a computer. [cite: 34][cite_start]</td><td>I don’t use a computer. [cite: 34][cite_start]</td><td>Do you use a computer? [cite: 34][cite_start]</td><td>He uses a computer. [cite: 34]</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
+
     <div class="chatbot-container">
         <button id="chatbot-button" onclick="toggleChat()">🤖 ChatBot IA</button>
-        
         <div id="chatbot-window">
             <div class="chatbot-header">Chat con tu Tutor Virtual</div>
             <div class="chatbot-body">
                 <p>¡Hola! Soy tu asistente de inglés. Pregúntame sobre el vocabulario o la gramática A1.</p>
-                <p class="nota">**NOTA IMPORTANTE:** Esta es una simulación de interfaz. Integrar una IA real requiere servicios avanzados y programación en JavaScript/servidor.</p>
+                <p class="nota">**NOTA IMPORTANTE:** Esta es una simulación de interfaz. Integrar una IA real requiere servicios avanzados.</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Función para mostrar/ocultar la ventana del chat
+        // Función para el ChatBot
         function toggleChat() {
             var chatWindow = document.getElementById('chatbot-window');
-            if (chatWindow.style.display === 'block') {
-                chatWindow.style.display = 'none';
-            } else {
-                chatWindow.style.display = 'block';
+            chatWindow.style.display = chatWindow.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // --- LÓGICA DE ACTIVIDADES INTERACTIVAS ---
+
+        // DATOS DE LAS ACTIVIDADES
+        const fillInWords = ["breakfast", "hipsters", "fun", "night", "deadlines", "happy", "right", "dancing", "you", "22"]; // Únicos
+        
+        const matchPairs = [
+            { en: "night", es: "noche" },
+            { en: "friends", es: "amigos" },
+            { en: "breakfast", es: "desayuno" },
+            { en: "dancing", es: "bailar" },
+            { en: "feel", es: "sentirse" },
+            { en: "heartbreak", es: "corazón roto" },
+            { en: "fun", es: "diversión" },
+            { en: "right", es: "correcto" }
+        ];
+
+        // 1. FILL IN THE BLANKS (Arrastrar y Soltar Simulado)
+
+        function initializeFillInTheBlanks() {
+            const wordBank = document.getElementById('word-bank');
+            const words = shuffleArray([...fillInWords]); // Mezclar para interactividad
+
+            words.forEach(word => {
+                const draggable = document.createElement('span');
+                draggable.className = 'draggable-word';
+                draggable.textContent = word;
+                draggable.setAttribute('draggable', true);
+                draggable.addEventListener('dragstart', dragStart);
+                wordBank.appendChild(draggable);
+            });
+
+            document.querySelectorAll('.drop-zone').forEach(zone => {
+                zone.addEventListener('dragover', dragOver);
+                zone.addEventListener('drop', drop);
+                zone.addEventListener('dragleave', dragLeave);
+            });
+        }
+
+        let draggedElement = null;
+
+        function dragStart(e) {
+            draggedElement = e.target;
+            e.dataTransfer.setData('text/plain', e.target.textContent);
+            setTimeout(() => e.target.classList.add('hide'), 0);
+        }
+
+        function dragOver(e) {
+            e.preventDefault();
+            if (e.target.children.length === 0) {
+                e.target.classList.add('drag-over');
             }
         }
+
+        function dragLeave(e) {
+            e.target.classList.remove('drag-over');
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            e.target.classList.remove('drag-over');
+
+            if (e.target.children.length === 0 && e.target.classList.contains('drop-zone')) {
+                // Crear un duplicado visual para dejar en el drop-zone
+                const clone = draggedElement.cloneNode(true);
+                clone.removeAttribute('draggable');
+                clone.classList.remove('hide');
+                clone.classList.add('dropped');
+                e.target.appendChild(clone);
+                
+                // Ocultar el original del banco
+                draggedElement.style.visibility = 'hidden'; 
+                draggedElement.classList.add('used'); 
+            }
+        }
+
+        function checkFillInTheBlanks() {
+            let correctCount = 0;
+            const totalBlanks = document.querySelectorAll('.drop-zone').length;
+            
+            document.querySelectorAll('.drop-zone').forEach(zone => {
+                const droppedWordElement = zone.querySelector('.dropped');
+                if (droppedWordElement) {
+                    const droppedWord = droppedWordElement.textContent.trim().toLowerCase();
+                    const correctWord = zone.getAttribute('data-correct').toLowerCase();
+
+                    if (droppedWord === correctWord) {
+                        zone.classList.add('correct');
+                        zone.classList.remove('incorrect');
+                        correctCount++;
+                    } else {
+                        zone.classList.add('incorrect');
+                        zone.classList.remove('correct');
+                    }
+                } else {
+                    zone.classList.remove('correct', 'incorrect');
+                }
+            });
+
+            const resultMessage = document.getElementById('fill-in-result');
+            if (correctCount === totalBlanks) {
+                resultMessage.textContent = '¡Felicidades! Todas las respuestas son correctas. 🎉';
+                resultMessage.style.color = 'green';
+            } else {
+                resultMessage.textContent = `Tienes ${correctCount} de ${totalBlanks} respuestas correctas. ¡Sigue practicando!`;
+                resultMessage.style.color = 'red';
+            }
+        }
+
+
+        // 2. VOCABULARY MATCH (Seleccionar y Verificar)
+
+        let selectedEnglishCard = null;
+        let selectedSpanishCard = null;
+        let matchedPairs = 0;
+
+        function initializeMatchGame() {
+            const matchGrid = document.getElementById('match-grid');
+            
+            // Crear una lista plana y desordenada de todas las tarjetas
+            const cards = [];
+            matchPairs.forEach(pair => {
+                cards.push({ text: pair.en, lang: 'en', match: pair.es });
+                cards.push({ text: pair.es, lang: 'es', match: pair.en });
+            });
+
+            const shuffledCards = shuffleArray(cards);
+            
+            shuffledCards.forEach(cardData => {
+                const card = document.createElement('div');
+                card.className = 'match-card';
+                card.textContent = cardData.text;
+                card.setAttribute('data-lang', cardData.lang);
+                card.setAttribute('data-match', cardData.match);
+                card.addEventListener('click', () => selectCard(card));
+                matchGrid.appendChild(card);
+            });
+        }
+
+        function selectCard(card) {
+            if (card.classList.contains('matched') || card.classList.contains('selected')) {
+                return;
+            }
+
+            // Deseleccionar si ya hay una del mismo tipo
+            if (card.getAttribute('data-lang') === 'en' && selectedEnglishCard) {
+                selectedEnglishCard.classList.remove('selected');
+                selectedEnglishCard = null;
+            } else if (card.getAttribute('data-lang') === 'es' && selectedSpanishCard) {
+                selectedSpanishCard.classList.remove('selected');
+                selectedSpanishCard = null;
+            }
+            
+            card.classList.add('selected');
+
+            if (card.getAttribute('data-lang') === 'en') {
+                selectedEnglishCard = card;
+            } else {
+                selectedSpanishCard = card;
+            }
+
+            // Verificar match
+            if (selectedEnglishCard && selectedSpanishCard) {
+                const enMatch = selectedEnglishCard.getAttribute('data-match');
+                const esText = selectedSpanishCard.textContent;
+
+                if (enMatch.toLowerCase() === esText.toLowerCase()) {
+                    // Match correcto
+                    selectedEnglishCard.classList.add('matched');
+                    selectedSpanishCard.classList.add('matched');
+                    selectedEnglishCard.classList.remove('selected');
+                    selectedSpanishCard.classList.remove('selected');
+                    
+                    selectedEnglishCard = null;
+                    selectedSpanishCard = null;
+                    matchedPairs++;
+
+                    if (matchedPairs === matchPairs.length) {
+                        document.getElementById('match-result').textContent = '¡Juego completo! Excelente. 🎉';
+                        document.getElementById('match-result').style.color = 'green';
+                    }
+                } else {
+                    // Match incorrecto: resaltar brevemente y deseleccionar
+                    selectedEnglishCard.classList.add('mismatch');
+                    selectedSpanishCard.classList.add('mismatch');
+                    
+                    setTimeout(() => {
+                        selectedEnglishCard.classList.remove('selected', 'mismatch');
+                        selectedSpanishCard.classList.remove('selected', 'mismatch');
+                        selectedEnglishCard = null;
+                        selectedSpanishCard = null;
+                    }, 800);
+                }
+            }
+        }
+
+
+        // Utilidad para desordenar un array (Algoritmo de Fisher-Yates)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Inicializar los juegos cuando la página carga
+        window.onload = function() {
+            initializeFillInTheBlanks();
+            initializeMatchGame();
+        };
+
     </script>
 
 </body>
 </html>
+
 
 
