@@ -1,0 +1,32 @@
+/* "body" es toda la página */
+body {
+    font-family: Arial, sans-serif; /* Cambia el tipo de letra */
+    background-color: #f0f0f0;    /* Un color de fondo gris claro */
+    text-align: center;           /* ¡Esto centra todo! */
+    margin: 20px;                 /* Añade un poco de espacio en los bordes */
+}
+
+/* "h1" es tu título principal */
+h1 {
+    color: #333; /* Un color de letra oscuro */
+}
+
+/* "img" son todas tus imágenes */
+img {
+    margin: 10px; /* Espacio entre las imágenes */
+    border: 3px solid #ccc; /* Un borde gris para las fotos */
+    border-radius: 8px;     /* Esquinas redondeadas */
+}
+
+/* "a" son tus enlaces */
+a {
+    color: #007BFF; /* Color azul para los enlaces */
+    text-decoration: none; /* Quita el subrayado feo */
+    font-size: 18px;
+}
+
+/* Esto hace que el enlace cambie de color cuando pasas el mouse */
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
