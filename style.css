@@ -1,229 +1,181 @@
-/* Paleta de Colores Crema:
-   - Fondo principal: #fefae0 (Crema muy claro)
-   - Fondo de secciones/tarjetas: #faedcd (Crema ligeramente más oscuro)
-   - Acentos/Botones: #d4a373 (Marrón/Crema medio)
-   - Texto: #333333 (Gris oscuro)
-*/
+/* --- ESTILOS ADICIONALES PARA LAS ACTIVIDADES INTERACTIVAS --- */
 
-/* ESTILOS GLOBALES */
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #fefae0; /* Fondo crema muy claro */
-    color: #333333;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-}
-
-header {
-    background-color: #d4a373; /* Color de acento */
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.main-title {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-/* SECCIONES DE CONTENIDO */
-.content-section {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.content-section h2 {
-    font-size: 1.8em;
-    color: #bc6c25; /* Un tono de marrón para los títulos */
-    border-bottom: 3px solid #d4a373;
-    padding-bottom: 5px;
-    margin-bottom: 25px;
-}
-
-/* VIDEO PRINCIPAL */
-.video-container {
-    position: relative;
-    width: 100%;
-    /* Truco para mantener la proporción 16:9 */
-    padding-bottom: 56.25%; 
-    height: 0;
-    overflow: hidden;
-    background-color: #faedcd;
+/* Contenedor principal de actividades */
+.interactive-activities {
+    background-color: #f7f3e8; /* Un color crema más claro para destacar la sección */
+    padding-top: 20px;
+    padding-bottom: 20px;
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* HIPERVÍNCULOS Y TARJETAS DE RECURSOS */
-.links-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.resource-card {
-    background-color: #faedcd; /* Fondo de tarjeta crema */
-    border-radius: 8px;
-    overflow: hidden;
-    text-decoration: none;
-    color: #333333;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-.resource-card:hover {
-    transform: translateY(-5px); /* Efecto interactivo al pasar el mouse */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.resource-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-.resource-card h3, .resource-card p {
-    padding: 0 15px;
-}
-
-/* VOCABULARIO Y ACTIVIDADES */
-.vocabulary-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-}
-
-.vocab-card {
-    flex: 1 1 calc(50% - 10px); /* Dos tarjetas por fila */
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.vocab-card.full-width {
-    flex: 1 1 100%; /* Una tarjeta de ancho completo para las tablas grandes */
-}
-
-.vocab-card h3 {
-    color: #d4a373;
-    margin-top: 0;
-    font-size: 1.2em;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #e9e5d4;
-    padding: 8px 12px;
-    text-align: left;
-}
-
-th {
-    background-color: #faedcd;
-    font-weight: 700;
-}
-
-/* ESTILOS DE ACTIVIDADES */
-.activities-container {
-    margin-top: 40px;
 }
 
 .activity-card {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border-left: 5px solid #d4a373;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.word-bank {
-    background-color: #e9e5d4;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px 0;
-    font-style: italic;
-}
-
-.lyrics {
-    background-color: #f7f7f7;
-    padding: 15px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-
-
-/* CHATBOT FIJO (LA ESQUINA) */
-
-.chatbot-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-#chatbot-button {
-    background-color: #d4a373; /* Color de acento */
-    color: white;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 50px;
-    font-size: 1em;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
-}
-
-#chatbot-button:hover {
-    background-color: #bc6c25;
-}
-
-#chatbot-window {
-    display: none; /* Inicialmente oculto */
-    position: absolute;
-    bottom: 70px; /* Se eleva sobre el botón */
-    right: 0;
-    width: 300px;
-    height: 400px;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 25px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+    border-left: 5px solid #d4a373;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-.chatbot-header {
-    background-color: #d4a373;
-    color: white;
-    padding: 10px;
+.activity-card h4 {
+    color: #bc6c25;
+    margin-top: 0;
+    font-size: 1.4em;
+    border-bottom: 1px dashed #faedcd;
+    padding-bottom: 10px;
+}
+
+.result-message {
     font-weight: bold;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
     text-align: center;
 }
 
-.chatbot-body {
+/* 1. FILL IN THE BLANKS - Estilos de Arrastrar y Soltar */
+
+.word-bank {
+    background-color: #faedcd;
     padding: 15px;
-    overflow-y: auto;
-    height: calc(100% - 40px);
+    border-radius: 8px;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 50px;
+    align-items: center;
 }
 
-.chatbot-body p.nota {
-    font-size: 0.8em;
-    color: #a00;
+.draggable-word {
+    display: inline-block;
+    background-color: #d4a373; /* Marrón de acento */
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: grab;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s;
+}
+
+.draggable-word:hover {
+    transform: translateY(-2px);
+}
+
+.draggable-word.hide, .draggable-word.used {
+    display: none; /* Ocultar el original al arrastrar o usar */
+}
+
+.lyrics-container p {
+    font-size: 1.1em;
+    margin: 15px 0;
+    line-height: 2.5; /* Espacio extra para las zonas de arrastre */
+}
+
+.drop-zone {
+    display: inline-block;
+    min-width: 100px;
+    min-height: 25px;
+    border-bottom: 2px dashed #bc6c25;
+    background-color: #e9e5d4;
+    padding: 2px 5px;
+    text-align: center;
+    position: relative;
+}
+
+.drop-zone.drag-over {
+    background-color: #ffe8b5;
+    border-color: #d4a373;
+}
+
+.dropped {
+    background-color: #83c5be; /* Un color para el texto que cae */
+    color: black;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.drop-zone.correct {
+    border-bottom: 2px solid green;
+}
+.drop-zone.incorrect {
+    border-bottom: 2px solid red;
+}
+
+/* Botón de verificación */
+.check-button {
+    background-color: #83c5be; /* Color verde/agua para acción */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.check-button:hover {
+    background-color: #6faaa2;
+}
+
+
+/* 2. VOCABULARY MATCH - Estilos de Emparejamiento */
+
+.match-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 15px;
     margin-top: 20px;
 }
+
+.match-card {
+    background-color: #faedcd;
+    padding: 15px 10px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    user-select: none; /* Evitar que el texto se seleccione */
+    border: 2px solid #faedcd;
+}
+
+.match-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.match-card.selected {
+    background-color: #d4a373; /* Seleccionado: Color de acento */
+    color: white;
+    border-color: #bc6c25;
+    transform: scale(1.05);
+}
+
+.match-card.mismatch {
+    background-color: #ffcccc !important; /* Error */
+    transform: scale(0.95);
+}
+
+.match-card.matched {
+    background-color: #83c5be; /* Correcto: Color verde/agua */
+    color: #333333;
+    border-color: green;
+    cursor: default;
+    opacity: 0.7;
+    pointer-events: none; /* Deshabilitar clics */
+}
+
+/* Asegurar que las tablas de vocabulario sigan usando el diseño original */
+.vocabulary-section .vocab-card {
+    background-color: white;
+    border-left: none; 
+}
+
+/* Mantener estilos de tablas anteriores */
+/* ... (el resto del código CSS que ya tenías) ... */
+
