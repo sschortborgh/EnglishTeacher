@@ -2,10 +2,10 @@
 :root {
     --color-bg: #fcf8f0;         /* Fondo principal (Crema Cálido) */
     --color-bg-alt: #eaf4f4;     /* Fondo de sección (Azul extra pálido) */
-    --color-primary: #6c8ea4;     /* Azul principal (Desaturado/Acero) */
-    --color-primary-light: #a7d5e4; /* Azul pastel (Claro) */
-    --color-accent: #bce29e;       /* Acento (Verde Menta Suave) */
-    --color-text: #3a3a3a;        /* Texto más oscuro para legibilidad */
+    --color-primary: #5f7a8f;     /* Azul principal (Más oscuro, mejor contraste) */
+    --color-primary-light: #90b3cc; /* Azul pastel (Claro) */
+    --color-accent: #a5cc82;       /* Acento (Verde Menta Suave, ajustado para contraste) */
+    --color-text: #2c2c2c;        /* Texto más oscuro para legibilidad */
     --color-white: #ffffff;
     --shadow: 0 4px 12px rgba(0,0,0,0.06);
     --shadow-hover: 0 8px 18px rgba(0,0,0,0.12);
@@ -29,18 +29,23 @@ header {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    min-height: 120px; /* Asegura espacio para los mensajes */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.main-title {
-    font-size: 2.5em;
-    margin-bottom: 5px;
+.header-content {
     position: relative;
     z-index: 2;
+    transition: opacity 0.5s ease-in-out; /* Transición para los mensajes */
 }
 
-header p {
-    position: relative;
-    z-index: 2;
+.header-content p {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-top: 10px;
 }
 
 /* Confetti (Easter Egg) */
@@ -60,6 +65,40 @@ header p {
     100% { transform: translate(var(--x), var(--y)) rotate(720deg) scale(0); opacity: 0; }
 }
 
+/* Fireworks (NUEVO) */
+.firework {
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    width: 10px;
+    height: 10px;
+    background-color: var(--color); /* Color dinámico */
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+    animation: explode 0.8s forwards;
+    z-index: 9999; /* Sobre todo */
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0) translateY(0px);
+        opacity: 1;
+        box-shadow: 0 0 0 0px var(--color);
+    }
+    10% {
+        transform: scale(1) translateY(-10px);
+        opacity: 1;
+        box-shadow: 0 0 10px 5px var(--color);
+    }
+    100% {
+        transform: scale(0.2) translateY(-100px);
+        opacity: 0;
+        box-shadow: 0 0 30px 10px var(--color);
+    }
+}
+
+
 /* --- 2. ESTRUCTURA DE SECCIONES --- */
 
 .content-section {
@@ -70,7 +109,7 @@ header p {
 
 .content-section h2 {
     color: var(--color-primary);
-    border-bottom: 2px solid var(--color-bg-alt);
+    border-bottom: 2px solid var(--color-primary-light); /* Borde ajustado */
     padding-bottom: 10px;
     margin-bottom: 25px;
     text-align: center;
@@ -103,9 +142,9 @@ h4 {
 .tab-button {
     background-color: var(--color-white);
     color: var(--color-primary);
-    border: 2px solid var(--color-primary-light);
+    border: 1px solid var(--color-primary-light); /* Borde menos redondeado */
     padding: 8px 16px;
-    border-radius: 50px;
+    border-radius: 8px; /* Menos redondeado */
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -114,16 +153,16 @@ h4 {
 
 .tab-button:hover:not(.active) {
     background-color: var(--color-bg-alt);
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: scale(1.03); /* Ligeramente menos "pop" */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 }
 
 .tab-button.active {
     background-color: var(--color-primary);
     color: var(--color-white);
     border-color: var(--color-primary);
-    transform: scale(1.1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.08); /* Ligeramente menos "pop" */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .vocabulary-grid {
@@ -132,7 +171,6 @@ h4 {
     gap: 25px;
 }
 
-/* ESTILO DE TARJETA SIMPLIFICADO Y CORREGIDO */
 .vocab-card {
     background-color: var(--color-white);
     padding: 20px;
@@ -140,23 +178,19 @@ h4 {
     box-shadow: var(--shadow);
     border-left: 5px solid var(--color-primary-light);
     
-    /* Animación de filtro */
     visibility: visible;
     opacity: 1;
     transform: scale(1);
-    max-height: 1000px; /* Altura suficiente */
+    max-height: 1000px;
     transition: all 0.4s ease-out;
     overflow: hidden;
 }
 
-/* Nuevo efecto Hover (Reemplaza el flip) */
 .vocab-card:hover {
-    transform: scale(1.03); /* Levanta la tarjeta */
+    transform: translateY(-5px); /* Efecto de "levantar" */
     box-shadow: var(--shadow-hover);
 }
 
-
-/* Clase para ocultar tarjetas (para el JS) */
 .vocab-card.card-hidden {
     opacity: 0;
     transform: scale(0.9);
@@ -181,7 +215,7 @@ h4 {
 
 .vocab-card th, .vocab-card td {
     padding: 8px 5px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e0e0e0; /* Color de borde ajustado */
     text-align: left;
 }
 
@@ -192,7 +226,7 @@ h4 {
 }
 
 .vocab-card tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #f7f7f7; /* Color de fila par ajustado */
 }
 
 .vocab-card.full-width {
@@ -231,7 +265,6 @@ h4 {
     box-shadow: var(--shadow-hover);
 }
 
-/* Efecto de brillo (Easter Egg) */
 .resource-card::before {
     content: '';
     position: absolute;
@@ -247,7 +280,6 @@ h4 {
 .resource-card:hover::before {
     left: 125%;
 }
-
 
 .resource-card img {
     width: 100%;
@@ -359,13 +391,12 @@ h4 {
     background-color: #ffebee;
 }
 
-/* Botón de verificación */
 .check-button {
     background-color: var(--color-accent); 
     color: var(--color-text);
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* Menos redondeado */
     font-size: 1em;
     font-weight: 600;
     cursor: pointer;
@@ -374,7 +405,7 @@ h4 {
 }
 
 .check-button:hover {
-    background-color: #a6d491; /* Tono más oscuro de acento */
+    background-color: #92b672; /* Tono más oscuro de acento */
     transform: scale(1.05);
 }
 
@@ -391,13 +422,13 @@ h4 {
 .match-card {
     background-color: var(--color-white);
     padding: 15px 10px;
-    border-radius: 8px;
+    border-radius: 8px; /* Menos redondeado */
     text-align: center;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.2s ease;
     user-select: none;
-    border: 2px solid var(--color-primary-light);
+    border: 1px solid var(--color-primary-light); /* Borde ajustado */
 }
 
 .match-card:hover {
@@ -421,7 +452,7 @@ h4 {
 .match-card.matched {
     background-color: var(--color-accent); 
     color: var(--color-text);
-    border-color: #a6d491;
+    border-color: #92b672;
     cursor: default;
     opacity: 0.7;
 }
@@ -481,7 +512,6 @@ h4 {
     cursor: pointer;
 }
 
-/* Efecto Desenfoque Easter Egg */
 .video-item-container:hover {
     box-shadow: var(--shadow-hover);
 }
@@ -517,7 +547,7 @@ h4 {
 }
 
 #chatbot-button:hover {
-    background-color: #5a7d95; /* Tono más oscuro */
+    background-color: #4c6476; /* Tono más oscuro */
 }
 
 #chatbot-window {
@@ -569,6 +599,9 @@ h4 {
     .main-title {
         font-size: 1.8em;
     }
+    .header-content p {
+        font-size: 1em;
+    }
     .links-grid, .vocabulary-grid, .video-grid-2x2 {
         grid-template-columns: 1fr;
     }
@@ -588,3 +621,4 @@ h4 {
         border-radius: 10px;
     }
 }
+
