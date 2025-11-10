@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -10,15 +10,16 @@
 <body>
 
     <header id="main-header">
+        
         <div class="header-content">
-            <h1 class="main-title">¡Aprende Inglés Nivel A1 de la Manera Más Divertida! 🚀</h1>
-            <p id="daily-tip">"Escucha música en inglés y busca las letras."</p>
+            <h1 class="main-title" id="rotating-title">¡Aprende Inglés Nivel A1 de la Manera Más Divertida! 🚀</h1>
+            <p id="daily-tip" style="display: none;"></p>
         </div>
     </header>
 
     <section class="content-section vocabulary-section" id="vocabulario">
         <h2>English Vocabulary A1 for Teenagers</h2>
-
+        
         <div class="tab-controls">
             <button class="tab-button active" data-tab="all">Mostrar Todo</button>
             <button class="tab-button" data-tab="personal">Info Personal</button>
@@ -323,7 +324,8 @@
             <p>Escucha la canción y arrastra las palabras del banco para completar la letra.</p>
             
             <div class="word-bank" id="word-bank">
-                </div>
+                
+</div>
 
             <div class="lyrics-container">
                 <p>It feels like a perfect <span class="drop-zone" data-correct="night"></span> To dress up like <span class="drop-zone" data-correct="hipsters"></span>
@@ -346,7 +348,8 @@
             <h4>Activity 2: Vocabulary Match (Emparejar)</h4>
             <p>Selecciona una palabra en inglés y luego su traducción en español.</p>
             <div class="match-grid" id="match-grid">
-                </div>
+                
+</div>
             <p id="match-result" class="result-message"></p>
         </div>
     </section>
@@ -423,14 +426,14 @@
             }
         });
 
-        // --- Fuegos Artificiales (NUEVO) ---
+        // --- Fuegos Artificiales ---
         function launchFireworks() {
-            const numFireworks = 20; // Número de puntos de explosión
-            const colors = ['#FFC300', '#FF5733', '#C70039', '#900C3F', '#581845', '#33FF57', '#33C7FF']; // Colores vibrantes
+            const numFireworks = 20; 
+            const colors = ['#FFC300', '#FF5733', '#C70039', '#900C3F', '#581845', '#33FF57', '#33C7FF']; 
 
             for (let i = 0; i < numFireworks; i++) {
                 const x = Math.random() * window.innerWidth;
-                const y = Math.random() * window.innerHeight * 0.7; // Que no salgan tan abajo
+                const y = Math.random() * window.innerHeight * 0.7; 
 
                 const color = colors[Math.floor(Math.random() * colors.length)];
 
@@ -442,7 +445,6 @@
                 
                 document.body.appendChild(firework);
 
-                // Crear partículas para cada fuego artificial
                 for (let j = 0; j < 30; j++) {
                     const particle = document.createElement('div');
                     particle.style.width = '5px';
@@ -459,15 +461,27 @@
                     const angle = Math.random() * 2 * Math.PI;
                     const distance = Math.random() * 100;
 
-                    // Ajustar las keyframes para que empiecen en el mismo sitio que el firework y se expandan
                     const styleSheet = document.styleSheets[0];
                     const ruleText = `@keyframes particleExplode-${i}-${j} {
                         0% { transform: translate(0, 0) scale(0); opacity: 1; }
-                        20% { opacity: 1; transform: translate(0, 0) scale(1); } /* Pequeño destello inicial */
+                        20% { opacity: 1; transform: translate(0, 0) scale(1); } 
                         100% { transform: translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance - 50}px) scale(0); opacity: 0; }
                     }`;
-                    styleSheet.insertRule(ruleText, styleSheet.cssRules.length);
-                    particle.style.animation = `particleExplode-${i}-${j} 0.8s forwards`;
+                    // Usar un nombre de animación más simple si el index es muy grande
+                    const animationName = `pE${i}-${j}`;
+                    const newRuleText = `@keyframes ${animationName} {
+                        0% { transform: translate(0, 0) scale(0); opacity: 1; }
+                        20% { opacity: 1; transform: translate(0, 0) scale(1); } 
+                        100% { transform: translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance - 50}px) scale(0); opacity: 0; }
+                    }`;
+                    
+                    try {
+                        styleSheet.insertRule(newRuleText, styleSheet.cssRules.length);
+                        particle.style.animation = `${animationName} 0.8s forwards`;
+                    } catch (e) {
+                        // Fallback si la hoja de estilos está llena o hay error
+                        // console.error("Could not insert rule:", e);
+                    }
                     
                     document.body.appendChild(particle);
 
@@ -485,27 +499,40 @@
 
         // --- Carrusel de Consejos Diarios (NUEVO) ---
         const dailyTips = [
-            "Escucha música en inglés y busca las letras.",
-            "Ve tus series favoritas con subtítulos en inglés.",
-            "¡Intenta pensar en inglés por unos minutos cada día!",
-            "Usa flashcards para memorizar vocabulario nuevo.",
-            "Lee artículos cortos o cómics en inglés.",
-            "Practica hablar contigo mismo frente al espejo.",
-            "Identifica 3 palabras nuevas cada día y úsalas.",
-            "Cambia el idioma de tu teléfono o redes sociales a inglés."
+            { title: "Tip del Día: ¡Inmersión!", tip: "Escucha música en inglés y busca las letras." },
+            { title: "Tip del Día: ¡Media!", tip: "Ve tus series favoritas con subtítulos en inglés." },
+            { title: "Tip del Día: ¡Pensamiento!", tip: "¡Intenta pensar en inglés por unos minutos cada día!" },
+            { title: "Tip del Día: ¡Vocabulario!", tip: "Usa flashcards para memorizar vocabulario nuevo." },
+            { title: "Tip del Día: ¡Lectura!", tip: "Lee artículos cortos o cómics en inglés." },
+            { title: "Tip del Día: ¡Habla!", tip: "Practica hablar contigo mismo frente al espejo." },
+            { title: "Tip del Día: ¡Expande!", tip: "Identifica 3 palabras nuevas cada día y úsalas." },
+            { title: "Tip del Día: ¡Tecnología!", tip: "Cambia el idioma de tu teléfono o redes sociales a inglés." }
         ];
         let currentTipIndex = 0;
 
         function updateDailyTip() {
+            const titleElement = document.getElementById('rotating-title');
             const tipElement = document.getElementById('daily-tip');
-            if (tipElement) {
-                tipElement.style.opacity = '0'; // Desaparecer
-                setTimeout(() => {
-                    currentTipIndex = (currentTipIndex + 1) % dailyTips.length;
-                    tipElement.textContent = dailyTips[currentTipIndex];
-                    tipElement.style.opacity = '1'; // Aparecer
-                }, 500); // Esperar a que la opacidad baje antes de cambiar el texto
-            }
+            
+            if (!titleElement || !tipElement) return;
+
+            // Transición de opacidad para que el cambio no sea brusco
+            titleElement.style.opacity = '0';
+            tipElement.style.opacity = '0';
+
+            setTimeout(() => {
+                // Alternar para que aparezca el tip
+                const tipData = dailyTips[currentTipIndex];
+                
+                titleElement.textContent = tipData.title + ' 💡'; 
+                tipElement.textContent = tipData.tip;
+
+                titleElement.style.opacity = '1';
+                tipElement.style.opacity = '1';
+                tipElement.style.display = 'block';
+
+                currentTipIndex = (currentTipIndex + 1) % dailyTips.length;
+            }, 500); // Esperar a que la opacidad baje antes de cambiar el texto
         }
         setInterval(updateDailyTip, 7000); // Cambiar consejo cada 7 segundos
 
@@ -524,13 +551,12 @@
             }
         }
 
-        // --- LÓGICA DE ACTIVIDADES INTERACTIVAS ---
+        // --- LÓGICA DE ACTIVIDADES INTERACTIVAS (Sin cambios aquí) ---
 
-        // ¡¡CORREGIDO!! - Palabras para la actividad de "Fill in the Blanks"
         const fillInWordsBank = [
             "night", "hipsters", "fun", "night", "dancing", "happy", 
             "night", "deadlines", "you", "22", "right", "dancing",
-            "miserable", "magical", "forget", "want", "keep" // Distractores y palabras adicionales para completar
+            "miserable", "magical", "forget", "want", "keep"
         ]; 
         
         const matchPairs = [
@@ -544,7 +570,6 @@
             { en: "right", es: "correcto" }
         ];
 
-        // Utilidad para desordenar un array
         function shuffleArray(array) {
             let newArray = [...array];
             for (let i = newArray.length - 1; i > 0; i--) {
@@ -647,7 +672,7 @@
             if (correctCount === totalBlanks) {
                 resultMessage.textContent = '¡Felicidades! Todas las respuestas son correctas. 🎉';
                 resultMessage.style.color = 'green';
-                launchFireworks(); // ¡Lanzar fuegos artificiales!
+                launchFireworks(); 
             } else {
                 resultMessage.textContent = `Tienes ${correctCount} de ${totalBlanks} respuestas correctas. ¡Sigue practicando!`;
                 resultMessage.style.color = 'red';
@@ -658,7 +683,7 @@
         // 2. VOCABULARY MATCH
         let selectedEnglishCard = null;
         let selectedSpanishCard = null;
-        let matchedPairsCount = 0; // Renombrado para evitar confusión con el array `matchPairs`
+        let matchedPairsCount = 0;
 
         function initializeMatchGame() {
             const matchGrid = document.getElementById('match-grid');
@@ -727,7 +752,7 @@
                     if (matchedPairsCount === matchPairs.length) {
                         document.getElementById('match-result').textContent = '¡Juego completo! Excelente. 🎉';
                         document.getElementById('match-result').style.color = 'green';
-                        launchFireworks(); // ¡Lanzar fuegos artificiales!
+                        launchFireworks(); 
                     }
                 } else {
                     const tempEnCard = selectedEnglishCard;
@@ -789,8 +814,9 @@
             initializeFillInTheBlanks();
             initializeMatchGame();
             setupTabs();
-            // Iniciar el carrusel de tips
-            updateDailyTip(); // Muestra el primer tip de inmediato
+            
+            // Reemplazar el título estático con el primer consejo
+            updateDailyTip();
         });
 
     </script>
