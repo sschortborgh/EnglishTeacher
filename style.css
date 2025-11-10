@@ -1,13 +1,14 @@
-/* --- 1. ESTILOS BASE, FUENTE Y PALETA (AZUL PASTEL) --- */
+/* --- 1. ESTILOS BASE, FUENTE Y PALETA (CREMA Y AZULES PASTEL) --- */
 :root {
-    --color-bg: #f0f8ff;         /* Fondo principal (AliceBlue) */
-    --color-bg-alt: #e0f7fa;     /* Fondo de sección (Light Cyan) */
-    --color-primary: #00bcd4;     /* Azul principal (Cyan) */
-    --color-primary-light: #80deea; /* Azul pastel */
-    --color-accent: #80cbc4;       /* Acento (Menta/Verde) */
+    --color-bg: #fdfaf5;         /* Fondo principal (un crema muy suave) */
+    --color-bg-alt: #e0f2f7;     /* Fondo de sección (Light Cyan más tenue) */
+    --color-primary: #4fc3f7;     /* Azul principal (Light Blue) */
+    --color-primary-light: #81d4fa; /* Azul pastel más claro */
+    --color-accent: #a7ffeb;       /* Acento (Aqua/Menta vibrante) */
     --color-text: #333;
     --color-white: #ffffff;
     --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-hover: 0 8px 18px rgba(0,0,0,0.15);
 }
 
 body {
@@ -25,12 +26,46 @@ header {
     padding: 30px 20px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative; /* Para el confetti */
+    overflow: hidden; /* Para que el confetti no se desborde */
+    cursor: pointer; /* Para indicar que es interactivo */
 }
 
 .main-title {
     font-size: 2.5em;
     margin-bottom: 5px;
+    position: relative; /* Para asegurar que el título esté sobre el confetti */
+    z-index: 2;
 }
+
+header p {
+    position: relative;
+    z-index: 2;
+}
+
+/* Confetti (Easter Egg) */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-accent); /* Color base del confetti */
+    border-radius: 50%;
+    animation: fall 3s forwards;
+    opacity: 0;
+    z-index: 1;
+}
+
+@keyframes fall {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) rotate(720deg) scale(0);
+        opacity: 0;
+    }
+}
+
 
 /* --- 2. ESTRUCTURA DE SECCIONES --- */
 
@@ -81,16 +116,21 @@ h4 {
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
+    transform: scale(1); /* Estado base */
 }
 
-.tab-button:hover {
+.tab-button:hover:not(.active) {
     background-color: var(--color-bg-alt);
+    transform: scale(1.05); /* Efecto "pop" al pasar el mouse */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .tab-button.active {
     background-color: var(--color-primary);
     color: var(--color-white);
     border-color: var(--color-primary);
+    transform: scale(1.1); /* Botón activo más grande */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .vocabulary-grid {
@@ -99,15 +139,76 @@ h4 {
     gap: 25px;
 }
 
+/* Efecto de flip en las tarjetas de vocabulario (Easter Egg) */
 .vocab-card {
     background-color: var(--color-white);
     padding: 20px;
     border-radius: 10px;
     box-shadow: var(--shadow);
     border-left: 5px solid var(--color-primary-light);
+    cursor: help; /* Indicador de interactividad */
+    
+    perspective: 1000px; /* Habilita 3D para el flip */
+    transition: all 0.4s ease-out; /* Para la animación de aparición/desaparición */
+
+    /* Para ocultar/mostrar animado */
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    max-height: 1000px; /* Altura máxima (suficiente para la tarjeta) */
+    overflow: hidden; /* Necesario para la animación de max-height */
 }
 
-.vocab-card h3 {
+/* Estado oculto animado */
+.vocab-card.card-hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    visibility: hidden;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-width: 0;
+}
+
+.vocab-card-inner { /* Contenedor para el flip */
+    position: relative;
+    width: 100%;
+    height: 100%; /* Asegura que el inner tenga la altura del card */
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.vocab-card:hover .vocab-card-inner {
+    transform: rotateY(180deg);
+}
+
+.vocab-card-front, .vocab-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Oculta la parte de atrás */
+    backface-visibility: hidden;
+    padding: 20px; /* Mantiene el padding */
+    box-sizing: border-box; /* Incluye padding en el ancho/alto */
+    text-align: left; /* Restaura el texto a la izquierda */
+}
+
+.vocab-card-back {
+    transform: rotateY(180deg);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+/* Asegura que el h3 en el front no se desborde */
+.vocab-card-front h3 {
     margin-top: 0;
 }
 
@@ -138,6 +239,13 @@ h4 {
     border-left-color: var(--color-accent);
 }
 
+.vocab-card.full-width .vocab-card-back { /* Deshabilita el flip en el full-width */
+    display: none;
+}
+.vocab-card.full-width:hover .vocab-card-inner {
+    transform: none; /* No gira */
+}
+
 .vocab-card.full-width h4 {
     color: var(--color-accent);
     margin-top: 15px;
@@ -159,13 +267,33 @@ h4 {
     box-shadow: var(--shadow);
     text-decoration: none;
     color: var(--color-text);
+    position: relative; /* Para el brillo */
+    overflow: hidden; /* Para que el brillo no se desborde */
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .resource-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+    box-shadow: var(--shadow-hover);
 }
+
+/* Efecto de brillo (Easter Egg) */
+.resource-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-45deg);
+    transition: all 0.4s ease;
+}
+
+.resource-card:hover::before {
+    left: 125%;
+}
+
 
 .resource-card img {
     width: 100%;
@@ -236,7 +364,9 @@ h4 {
 .draggable-word.hide, .draggable-word.used {
     visibility: hidden;
     opacity: 0;
+    /* transition: none; Deshabilita la transición para una desaparición instantánea en el drag */
 }
+
 
 .lyrics-container p {
     font-size: 1.1em;
@@ -280,7 +410,7 @@ h4 {
 /* Botón de verificación */
 .check-button {
     background-color: var(--color-accent); 
-    color: var(--color-white);
+    color: var(--color-text); /* Color de texto cambiado para que contraste con el acento */
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -292,7 +422,7 @@ h4 {
 }
 
 .check-button:hover {
-    background-color: #66a39b;
+    background-color: #66a39b; /* Tono más oscuro de acento */
 }
 
 
@@ -337,7 +467,7 @@ h4 {
 
 .match-card.matched {
     background-color: var(--color-accent); 
-    color: var(--color-white);
+    color: var(--color-text); /* Color de texto cambiado para que contraste con el acento */
     border-color: #66a39b;
     cursor: default;
     opacity: 0.7;
@@ -359,14 +489,21 @@ h4 {
     margin-bottom: 40px;
 }
 
+.video-item-container {
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
 .video-2x2-item {
     position: relative;
     width: 100%;
     padding-bottom: 56.25%; 
     height: 0;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Transición para el desenfoque */
+    transition: filter 0.3s ease;
 }
 
 .video-2x2-item iframe {
@@ -378,18 +515,30 @@ h4 {
     border: none;
 }
 
-/* Título de los videos (Debajo del video) */
+/* Título de los videos (Debajo del video) - Easter Egg de Desenfoque */
 .video-title-overlay {
-    /* Este estilo es para el <p> que está *después* del <iframe> */
     display: block;
     width: 100%;
-    background: transparent;
+    background-color: var(--color-white); /* Fondo para que resalte */
     color: var(--color-text);
-    padding-top: 10px;
+    padding: 10px;
     font-size: 1em;
     font-weight: 600;
     text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, filter 0.3s ease;
+    cursor: pointer; /* Indicar interactividad */
 }
+
+.video-item-container:hover .video-2x2-item {
+    filter: blur(5px); /* Desenfoque del video al pasar el mouse */
+}
+
+.video-item-container:hover .video-title-overlay {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    filter: none; /* Asegura que el título no se desenfoque */
+}
+
 
 /* --- 7. CHATBOT FIJO --- */
 
@@ -426,7 +575,20 @@ h4 {
     bottom: 70px;
     right: 0;
     overflow: hidden;
+    transform-origin: bottom right; /* Para el efecto de rebote */
 }
+
+/* Animación de rebote para el chatbot (Easter Egg) */
+.chatbot-window-open {
+    animation: bounceIn 0.5s ease-out;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.1); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
 
 .chatbot-header {
     background-color: var(--color-primary);
@@ -467,5 +629,13 @@ h4 {
     .tab-controls {
         justify-content: flex-start;
         overflow-x: auto; /* Permite scroll horizontal en los botones */
+        white-space: nowrap; /* Evita que los botones se rompan de línea */
+    }
+    .tab-controls::-webkit-scrollbar {
+        height: 5px; /* Scrollbar más discreto */
+    }
+    .tab-controls::-webkit-scrollbar-thumb {
+        background: var(--color-primary-light);
+        border-radius: 10px;
     }
 }
