@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -10,8 +10,10 @@
 <body>
 
     <header id="main-header">
-        <h1 class="main-title">¡Aprende Inglés Nivel A1 de la Manera Más Divertida! 🚀</h1>
-        <p>Tu aventura con el Presente Simple, Vocabulario y mucho más.</p>
+        <div class="header-content">
+            <h1 class="main-title">¡Aprende Inglés Nivel A1 de la Manera Más Divertida! 🚀</h1>
+            <p id="daily-tip">"Escucha música en inglés y busca las letras."</p>
+        </div>
     </header>
 
     <section class="content-section vocabulary-section" id="vocabulario">
@@ -243,18 +245,54 @@
                         <tr><td>watch</td><td>I watch TV.</td><td>I don’t watch TV.</td><td>Do you watch TV?,</td><td>He watches TV.</td></tr>
                     </tbody>
                 </table>
+
                 <h4>Rutina diaria</h4>
                 <table>
-                    </table>
+                    <thead><tr><th>Verb</th><th>Affirmative</th><th>Negative</th><th>Interrogative</th><th>Third Person</th></tr></thead>
+                    <tbody>
+                        <tr><td>wake up</td><td>I wake up at 6.</td><td>I don’t wake up at 6.</td><td>Do you wake up at 6?</td><td>He wakes up at 6.</td></tr>
+                        <tr><td>brush teeth</td><td>I brush my teeth.</td><td>I don’t brush my teeth.</td><td>Do you brush your teeth?</td><td>She brushes her teeth.</td></tr>
+                        <tr><td>eat</td><td>I eat breakfast.</td><td>I don’t eat breakfast.</td><td>Do you eat breakfast?</td><td>He eats breakfast.</td></tr>
+                        <tr><td>study</td><td>I study English.</td><td>I don’t study English.</td><td>Do you study English?</td><td>She studies English.</td></tr>
+                        <tr><td>sleep</td><td>I sleep early.</td><td>I don’t sleep early.</td><td>Do you sleep early?</td><td>He sleeps early.</td></tr>
+                    </tbody>
+                </table>
+
                 <h4>Tiempo libre</h4>
                 <table>
-                    </table>
+                    <thead><tr><th>Verb</th><th>Affirmative</th><th>Negative</th><th>Interrogative</th><th>Third Person</th></tr></thead>
+                    <tbody>
+                        <tr><td>listen</td><td>I listen to music.</td><td>I don’t listen to music.</td><td>Do you listen to music?</td><td>She listens to music.</td></tr>
+                        <tr><td>read</td><td>I read books.</td><td>I don’t read books.</td><td>Do you read books?</td><td>He reads books.</td></tr>
+                        <tr><td>dance</td><td>I dance at parties.</td><td>I don’t dance at parties.</td><td>Do you dance at parties?</td><td>She dances at parties.</td></tr>
+                        <tr><td>draw</td><td>I draw in my notebook.</td><td>I don’t draw in my notebook.</td><td>Do you draw in your notebook?</td><td>He draws in his notebook.</td></tr>
+                        <tr><td>play</td><td>I play video games.</td><td>I don’t play video games.</td><td>Do you play video games?</td><td>She plays video games.</td></tr>
+                    </tbody>
+                </table>
+
                 <h4>Comida y bebidas</h4>
                 <table>
-                    </table>
+                    <thead><tr><th>Verb</th><th>Affirmative</th><th>Negative</th><th>Interrogative</th><th>Third Person</th></tr></thead>
+                    <tbody>
+                        <tr><td>eat</td><td>I eat rice.</td><td>I don’t eat rice.</td><td>Do you eat rice?</td><td>He eats rice.</td></tr>
+                        <tr><td>drink</td><td>I drink water.</td><td>I don’t drink water.</td><td>Do you drink water?</td><td>She drinks water.</td></tr>
+                        <tr><td>cook</td><td>I cook dinner.</td><td>I don’t cook dinner.</td><td>Do you cook dinner?</td><td>He cooks dinner.</td></tr>
+                        <tr><td>like</td><td>I like apples.</td><td>I don’t like apples.</td><td>Do you like apples?</td><td>She likes apples.</td></tr>
+                        <tr><td>want</td><td>I want juice.</td><td>I don’t want juice.</td><td>Do you want juice?</td><td>He wants juice.</td></tr>
+                    </tbody>
+                </table>
+
                 <h4>Escuela</h4>
                 <table>
-                    </table>
+                    <thead><tr><th>Verb</th><th>Affirmative</th><th>Negative</th><th>Interrogative</th><th>Third Person</th></tr></thead>
+                    <tbody>
+                        <tr><td>study</td><td>I study math.</td><td>I don’t study math.</td><td>Do you study math?</td><td>He studies math.</td></tr>
+                        <tr><td>write</td><td>I write in my notebook.</td><td>I don’t write in my notebook.</td><td>Do you write in your notebook?</td><td>She writes in her notebook.</td></tr>
+                        <tr><td>read</td><td>I read in class.</td><td>I don’t read in class.</td><td>Do you read in class?</td><td>He reads in class.</td></tr>
+                        <tr><td>help</td><td>I help my teacher.</td><td>I don’t help my teacher.</td><td>Do you help your teacher?</td><td>She helps her teacher.</td></tr>
+                        <tr><td>use</td><td>I use a computer.</td><td>I don’t use a computer.</td><td>Do you use a computer?</td><td>He uses a computer.</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -366,7 +404,6 @@
     <script>
         // --- Confetti Easter Egg (Encabezado) ---
         document.getElementById('main-header').addEventListener('click', function(e) {
-            // ... (El código del confetti va aquí, sin cambios) ...
             for (let i = 0; i < 30; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
@@ -386,6 +423,92 @@
             }
         });
 
+        // --- Fuegos Artificiales (NUEVO) ---
+        function launchFireworks() {
+            const numFireworks = 20; // Número de puntos de explosión
+            const colors = ['#FFC300', '#FF5733', '#C70039', '#900C3F', '#581845', '#33FF57', '#33C7FF']; // Colores vibrantes
+
+            for (let i = 0; i < numFireworks; i++) {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight * 0.7; // Que no salgan tan abajo
+
+                const color = colors[Math.floor(Math.random() * colors.length)];
+
+                const firework = document.createElement('div');
+                firework.className = 'firework';
+                firework.style.setProperty('--x', `${x}px`);
+                firework.style.setProperty('--y', `${y}px`);
+                firework.style.setProperty('--color', color);
+                
+                document.body.appendChild(firework);
+
+                // Crear partículas para cada fuego artificial
+                for (let j = 0; j < 30; j++) {
+                    const particle = document.createElement('div');
+                    particle.style.width = '5px';
+                    particle.style.height = '5px';
+                    particle.style.backgroundColor = color;
+                    particle.style.borderRadius = '50%';
+                    particle.style.position = 'absolute';
+                    particle.style.left = `${x}px`;
+                    particle.style.top = `${y}px`;
+                    particle.style.opacity = '0';
+                    particle.style.zIndex = '9998';
+                    particle.style.transform = 'scale(0)';
+
+                    const angle = Math.random() * 2 * Math.PI;
+                    const distance = Math.random() * 100;
+
+                    // Ajustar las keyframes para que empiecen en el mismo sitio que el firework y se expandan
+                    const styleSheet = document.styleSheets[0];
+                    const ruleText = `@keyframes particleExplode-${i}-${j} {
+                        0% { transform: translate(0, 0) scale(0); opacity: 1; }
+                        20% { opacity: 1; transform: translate(0, 0) scale(1); } /* Pequeño destello inicial */
+                        100% { transform: translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance - 50}px) scale(0); opacity: 0; }
+                    }`;
+                    styleSheet.insertRule(ruleText, styleSheet.cssRules.length);
+                    particle.style.animation = `particleExplode-${i}-${j} 0.8s forwards`;
+                    
+                    document.body.appendChild(particle);
+
+                    particle.addEventListener('animationend', () => {
+                        particle.remove();
+                    });
+                }
+
+                firework.addEventListener('animationend', () => {
+                    firework.remove();
+                });
+            }
+        }
+
+
+        // --- Carrusel de Consejos Diarios (NUEVO) ---
+        const dailyTips = [
+            "Escucha música en inglés y busca las letras.",
+            "Ve tus series favoritas con subtítulos en inglés.",
+            "¡Intenta pensar en inglés por unos minutos cada día!",
+            "Usa flashcards para memorizar vocabulario nuevo.",
+            "Lee artículos cortos o cómics en inglés.",
+            "Practica hablar contigo mismo frente al espejo.",
+            "Identifica 3 palabras nuevas cada día y úsalas.",
+            "Cambia el idioma de tu teléfono o redes sociales a inglés."
+        ];
+        let currentTipIndex = 0;
+
+        function updateDailyTip() {
+            const tipElement = document.getElementById('daily-tip');
+            if (tipElement) {
+                tipElement.style.opacity = '0'; // Desaparecer
+                setTimeout(() => {
+                    currentTipIndex = (currentTipIndex + 1) % dailyTips.length;
+                    tipElement.textContent = dailyTips[currentTipIndex];
+                    tipElement.style.opacity = '1'; // Aparecer
+                }, 500); // Esperar a que la opacidad baje antes de cambiar el texto
+            }
+        }
+        setInterval(updateDailyTip, 7000); // Cambiar consejo cada 7 segundos
+
 
         // Función para el ChatBot (con Easter Egg de rebote)
         function toggleChat() {
@@ -403,11 +526,11 @@
 
         // --- LÓGICA DE ACTIVIDADES INTERACTIVAS ---
 
-        // ¡¡ARREGLADO!! - Se añadieron las palabras que faltaban y duplicados
-        const fillInWords = [
+        // ¡¡CORREGIDO!! - Palabras para la actividad de "Fill in the Blanks"
+        const fillInWordsBank = [
             "night", "hipsters", "fun", "night", "dancing", "happy", 
             "night", "deadlines", "you", "22", "right", "dancing",
-            "breakfast", "lonely", "strangers" // Palabras extra (distractores)
+            "miserable", "magical", "forget", "want", "keep" // Distractores y palabras adicionales para completar
         ]; 
         
         const matchPairs = [
@@ -423,7 +546,7 @@
 
         // Utilidad para desordenar un array
         function shuffleArray(array) {
-            let newArray = [...array]; // Copiar el array para no modificar el original
+            let newArray = [...array];
             for (let i = newArray.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
@@ -438,8 +561,8 @@
             const wordBank = document.getElementById('word-bank');
             if (!wordBank) return;
 
-            wordBank.innerHTML = ''; // Limpiar
-            const words = shuffleArray(fillInWords); // Usar el array global
+            wordBank.innerHTML = '';
+            const words = shuffleArray(fillInWordsBank);
 
             words.forEach(word => {
                 const draggable = document.createElement('span');
@@ -450,7 +573,6 @@
                 wordBank.appendChild(draggable);
             });
 
-            // Limpiar zonas de soltar
             document.querySelectorAll('.drop-zone').forEach(zone => {
                 zone.innerHTML = ''; 
                 zone.classList.remove('correct', 'incorrect');
@@ -458,7 +580,6 @@
                 zone.addEventListener('drop', drop);
                 zone.addEventListener('dragleave', dragLeave);
             });
-            // Limpiar mensaje de resultado
             const resultMsg = document.getElementById('fill-in-result');
             if (resultMsg) resultMsg.textContent = ''; 
         }
@@ -526,6 +647,7 @@
             if (correctCount === totalBlanks) {
                 resultMessage.textContent = '¡Felicidades! Todas las respuestas son correctas. 🎉';
                 resultMessage.style.color = 'green';
+                launchFireworks(); // ¡Lanzar fuegos artificiales!
             } else {
                 resultMessage.textContent = `Tienes ${correctCount} de ${totalBlanks} respuestas correctas. ¡Sigue practicando!`;
                 resultMessage.style.color = 'red';
@@ -536,7 +658,7 @@
         // 2. VOCABULARY MATCH
         let selectedEnglishCard = null;
         let selectedSpanishCard = null;
-        let matchedPairs = 0;
+        let matchedPairsCount = 0; // Renombrado para evitar confusión con el array `matchPairs`
 
         function initializeMatchGame() {
             const matchGrid = document.getElementById('match-grid');
@@ -546,7 +668,7 @@
             const resultMsg = document.getElementById('match-result');
             if (resultMsg) resultMsg.textContent = ''; 
 
-            matchedPairs = 0;
+            matchedPairsCount = 0;
 
             const cards = [];
             matchPairs.forEach(pair => {
@@ -600,11 +722,12 @@
                     
                     selectedEnglishCard = null;
                     selectedSpanishCard = null;
-                    matchedPairs++;
+                    matchedPairsCount++;
 
-                    if (matchedPairs === matchPairs.length) {
+                    if (matchedPairsCount === matchPairs.length) {
                         document.getElementById('match-result').textContent = '¡Juego completo! Excelente. 🎉';
                         document.getElementById('match-result').style.color = 'green';
+                        launchFireworks(); // ¡Lanzar fuegos artificiales!
                     }
                 } else {
                     const tempEnCard = selectedEnglishCard;
@@ -666,10 +789,13 @@
             initializeFillInTheBlanks();
             initializeMatchGame();
             setupTabs();
+            // Iniciar el carrusel de tips
+            updateDailyTip(); // Muestra el primer tip de inmediato
         });
 
     </script>
 
 </body>
 </html>
+
 
