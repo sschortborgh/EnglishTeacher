@@ -3,33 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clase de Inglés A1 para Adolescentes</title>
+    <title>Clase de Inglés A1 para Adolescentes: Presente Simple, Vocabulario Básico y Actividades Interactivas</title>
+    <meta name="description" content="Aprende inglés nivel A1 de forma divertida con ejercicios de Presente Simple, vocabulario esencial para adolescentes, videos y actividades interactivas de arrastrar y soltar.">
+    <link rel="canonical" href="URL_DE_TU_PAGINA_AQUI">
+    
     <link rel="stylesheet" href="./style.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <h1 class="main-title">¡Aprende Inglés Nivel A1 de la Manera Más Divertida! 🚀</h1>
-        <p>Tu aventura con el Presente Simple, Vocabulario y mucho más.</p>
+    <header role="banner">
+        <h1 class="main-title">Aprende Inglés Nivel A1 de la Manera Más Divertida: Presente Simple y Vocabulario 🚀</h1>
+        <p>Tu aventura con el Presente Simple, Vocabulario de rutinas, comida y más.</p>
     </header>
 
-    <section class="content-section links-section">
-        <h2>Recursos Interactivos y Videos de Apoyo</h2>
+    <section class="content-section links-section" aria-labelledby="recursos-titulo">
+        <h2 id="recursos-titulo">Recursos Interactivos y Videos de Apoyo</h2>
         
-        <div class="links-grid">
+        <nav class="links-grid" role="navigation" aria-label="Enlaces a ejercicios externos">
             <a href="https://www.liveworksheets.com/worksheet/en/esl-grammar/59098" target="_blank" class="resource-card">
-                <img src="https://via.placeholder.com/300x150?text=EJERCICIO+GRAMATICA" alt="Grammar Worksheet">
+                <img src="https://via.placeholder.com/300x150?text=EJERCICIO+GRAMATICA" alt="Icono de ejercicio de Gramática: Presente Simple">
                 <h3>Gramática: Presente Simple</h3>
                 <p>Ejercicios interactivos para practicar el Presente Simple.</p>
             </a>
 
             <a href="https://www.liveworksheets.com/worksheet/en/esl-vocabulary/51595" target="_blank" class="resource-card">
-                <img src="https://via.placeholder.com/300x150?text=EJERCICIO+VOCABULARIO" alt="Vocabulary Worksheet">
+                <img src="https://via.placeholder.com/300x150?text=EJERCICIO+VOCABULARIO" alt="Icono de ejercicio de Vocabulario A1">
                 <h3>Vocabulario A1</h3>
                 <p>Completa las oraciones con vocabulario básico.</p>
             </a>
-        </div>
+        </nav>
         
         <h3>Videos Clave de la Lección</h3>
         <div class="video-grid-2x2">
@@ -37,21 +40,22 @@
             <div class="video-2x2-item">
                 <iframe
                     src="https://www.youtube.com/embed/wtTAdfyejH0"
-                    title="Present Simple A1"
+                    title="Video Lección: Presente Simple Nivel A1"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
+                    allowfullscreen
+                    loading="lazy"> </iframe>
                 <p class="video-title-overlay">Presente Simple (Lección)</p>
             </div>
             
             <div class="video-2x2-item">
                 <iframe
                     src="https://www.youtube.com/embed/iIQmMGR0LqY"
-                    title="Present Simple Practice"
+                    title="Video de Práctica: Presente Simple"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
+                    allowfullscreen
+                    loading="lazy">
                 </iframe>
                 <p class="video-title-overlay">Presente Simple (Práctica)</p>
             </div>
@@ -59,10 +63,11 @@
             <div class="video-2x2-item">
                 <iframe
                     src="https://www.youtube.com/embed/ySg4tPBOcWw"
-                    title="Daily Routines A1"
+                    title="Video de Vocabulario: Rutinas Diarias A1"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
+                    allowfullscreen
+                    loading="lazy">
                 </iframe>
                 <p class="video-title-overlay">Rutinas Diarias (Vocabulario)</p>
             </div>
@@ -70,61 +75,61 @@
             <div class="video-2x2-item">
                 <iframe
                     src="https://www.youtube.com/embed/EAw83pIy21k"
-                    title="Hobbies and Free Time"
+                    title="Video de Vocabulario: Hobbies y Tiempo Libre"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
+                    allowfullscreen
+                    loading="lazy">
                 </iframe>
                 <p class="video-title-overlay">Hobbies y Tiempo Libre</p>
             </div>
         </div>
-        </section>
-
-    <section class="content-section interactive-activities">
-        <h2>¡A Jugar! Actividades Interactivas</h2>
-
-        <div class="activity-card">
-            <h4>Activity 1: Fill in the Blanks (Completa los espacios)</h4>
-            <p>Escucha la canción y arrastra las palabras del banco para completar la letra.</p>
-            
-            <div class="word-bank" id="word-bank">
-            </div>
-
-            <div class="lyrics-container">
-                <p>It feels like a perfect <span class="drop-zone" data-correct="night"></span> To dress up like <span class="drop-zone" data-correct="hipsters"></span>
-                And make <span class="drop-zone" data-correct="fun"></span> of our exes, uh uh, uh uh.</p>
-                <p>It feels like a perfect <span class="drop-zone" data-correct="night"></span> For <span class="drop-zone" data-correct="dancing"></span> at midnight
-                To fall in love with strangers, uh uh, uh uh.</p>
-                <p>Yeah, We’re <span class="drop-zone" data-correct="happy"></span>, free, confused and lonely at the same time,
-                It’s miserable and magical, oh yeah. Tonight’s the <span class="drop-zone" data-correct="night"></span>
-                When we forget about the <span class="drop-zone" data-correct="deadlines"></span>, it’s time, oh oh.</p>
-                <p>I don’t know about <span class="drop-zone" data-correct="you"></span>. But I’m feeling <span class="drop-zone" data-correct="22"></span>.
-                Everything will be all <span class="drop-zone" data-correct="right"></span> If you keep me next to you.</p>
-                <p>You don’t know about me, But I bet you want to.
-                Everything will be alright If we just keep <span class="drop-zone" data-correct="dancing"></span>, like we’re 22.</p>
-            </div>
-            <button class="check-button" onclick="checkFillInTheBlanks()">Verificar Respuestas</button>
-            <p id="fill-in-result" class="result-message"></p>
-        </div>
-
-        <div class="activity-card">
-            <h4>Activity 2: Vocabulary Match (Emparejar)</h4>
-            <p>Selecciona una palabra en inglés y luego su traducción en español.</p>
-            <div class="match-grid" id="match-grid">
-            </div>
-            <p id="match-result" class="result-message"></p>
-        </div>
-
     </section>
 
-    <section class="content-section vocabulary-section">
-        <h2>English Vocabulary A1 for Teenagers</h2>
+    <section class="content-section interactive-activities" aria-labelledby="actividades-titulo">
+        <h2 id="actividades-titulo">¡A Jugar! Actividades Interactivas</h2>
+
+        <div class="activity-card" role="region" aria-labelledby="activity-1-title">
+            <h4 id="activity-1-title">Activity 1: Fill in the Blanks (Completa los espacios)</h4>
+            <p>Escucha la canción y arrastra las palabras del banco para completar la letra.</p>
+            
+            <div class="word-bank" id="word-bank" role="list" aria-label="Banco de palabras a arrastrar">
+                </div>
+
+            <div class="lyrics-container">
+                <p>It feels like a perfect <span class="drop-zone" data-correct="night" role="textbox" aria-label="Espacio para palabra night"></span> To dress up like <span class="drop-zone" data-correct="hipsters" role="textbox" aria-label="Espacio para palabra hipsters"></span>
+                And make <span class="drop-zone" data-correct="fun" role="textbox" aria-label="Espacio para palabra fun"></span> of our exes, uh uh, uh uh.</p>
+                <p>It feels like a perfect <span class="drop-zone" data-correct="night" role="textbox" aria-label="Espacio para palabra night"></span> For <span class="drop-zone" data-correct="dancing" role="textbox" aria-label="Espacio para palabra dancing"></span> at midnight
+                To fall in love with strangers, uh uh, uh uh.</p>
+                <p>Yeah, We’re <span class="drop-zone" data-correct="happy" role="textbox" aria-label="Espacio para palabra happy"></span>, free, confused and lonely at the same time,
+                It’s miserable and magical, oh yeah. Tonight’s the <span class="drop-zone" data-correct="night" role="textbox" aria-label="Espacio para palabra night"></span>
+                When we forget about the <span class="drop-zone" data-correct="deadlines" role="textbox" aria-label="Espacio para palabra deadlines"></span>, it’s time, oh oh.</p>
+                <p>I don’t know about <span class="drop-zone" data-correct="you" role="textbox" aria-label="Espacio para palabra you"></span>. But I’m feeling <span class="drop-zone" data-correct="22" role="textbox" aria-label="Espacio para palabra 22"></span>.
+                Everything will be all <span class="drop-zone" data-correct="right" role="textbox" aria-label="Espacio para palabra right"></span> If you keep me next to you.</p>
+                <p>You don’t know about me, But I bet you want to.
+                Everything will be alright If we just keep <span class="drop-zone" data-correct="dancing" role="textbox" aria-label="Espacio para palabra dancing"></span>, like we’re 22.</p>
+            </div>
+            <button class="check-button" onclick="checkFillInTheBlanks()">Verificar Respuestas</button>
+            <p id="fill-in-result" class="result-message" aria-live="polite"></p>
+        </div>
+
+        <div class="activity-card" role="region" aria-labelledby="activity-2-title">
+            <h4 id="activity-2-title">Activity 2: Vocabulary Match (Emparejar)</h4>
+            <p>Selecciona una palabra en inglés y luego su traducción en español.</p>
+            <div class="match-grid" id="match-grid">
+                </div>
+            <p id="match-result" class="result-message" aria-live="polite"></p>
+        </div>
+    </section>
+
+    <section class="content-section vocabulary-section" aria-labelledby="vocabulario-titulo">
+        <h2 id="vocabulario-titulo">English Vocabulary A1 for Teenagers</h2>
 
         <div class="vocabulary-grid">
-            <div class="vocab-card">
-                <h3>Personal Information / Información personal</h3>
+            <div class="vocab-card" role="region" aria-labelledby="personal-info-title">
+                <h3 id="personal-info-title">Personal Information / Información personal</h3>
                 <table>
-                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <thead><tr><th scope="col">English</th><th scope="col">Español</th></tr></thead>
                     <tbody>
                         <tr><td>name</td><td>nombre</td></tr>
                         <tr><td>age</td><td>edad</td></tr>
@@ -139,10 +144,10 @@
                 </table>
             </div>
 
-            <div class="vocab-card">
-                <h3>School and Learning / Escuela y aprendizaje</h3>
+            <div class="vocab-card" role="region" aria-labelledby="school-learning-title">
+                <h3 id="school-learning-title">School and Learning / Escuela y aprendizaje</h3>
                 <table>
-                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <thead><tr><th scope="col">English</th><th scope="col">Español</th></tr></thead>
                     <tbody>
                         <tr><td>school</td><td>escuela / colegio</td></tr>
                         <tr><td>class</td><td>clase</td></tr>
@@ -161,10 +166,10 @@
                 </table>
             </div>
             
-            <div class="vocab-card">
-                <h3>Home and Family / Casa y familia</h3>
+            <div class="vocab-card" role="region" aria-labelledby="home-family-title">
+                <h3 id="home-family-title">Home and Family / Casa y familia</h3>
                 <table>
-                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <thead><tr><th scope="col">English</th><th scope="col">Español</th></tr></thead>
                     <tbody>
                         <tr><td>house</td><td>casa</td></tr>
                         <tr><td>room</td><td>habitación</td></tr>
@@ -180,10 +185,10 @@
                 </table>
             </div>
 
-            <div class="vocab-card">
-                <h3>Daily Routine / Rutina diaria</h3>
+            <div class="vocab-card" role="region" aria-labelledby="daily-routine-title">
+                <h3 id="daily-routine-title">Daily Routine / Rutina diaria</h3>
                 <table>
-                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <thead><tr><th scope="col">English</th><th scope="col">Español</th></tr></thead>
                     <tbody>
                         <tr><td>wake up</td><td>despertarse</td></tr>
                         <tr><td>get up</td><td>levantarse</td></tr>
@@ -198,10 +203,10 @@
                 </table>
             </div>
             
-            <div class="vocab-card">
-                <h3>Food and Drinks / Comida y bebidas</h3>
+            <div class="vocab-card" role="region" aria-labelledby="food-drinks-title">
+                <h3 id="food-drinks-title">Food and Drinks / Comida y bebidas</h3>
                 <table>
-                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <thead><tr><th scope="col">English</th><th scope="col">Español</th></tr></thead>
                     <tbody>
                         <tr><td>water</td><td>agua</td></tr>
                         <tr><td>milk</td><td>leche</td></tr>
@@ -220,10 +225,10 @@
                 </table>
             </div>
 
-            <div class="vocab-card">
-                <h3>Free Time and Hobbies / Tiempo libre y pasatiempos</h3>
+            <div class="vocab-card" role="region" aria-labelledby="free-time-title">
+                <h3 id="free-time-title">Free Time and Hobbies / Tiempo libre y pasatiempos</h3>
                 <table>
-                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <thead><tr><th scope="col">English</th><th scope="col">Español</th></tr></thead>
                     <tbody>
                         <tr><td>music</td><td>música</td></tr>
                         <tr><td>song</td><td>canción</td></tr>
@@ -239,10 +244,10 @@
                 </table>
             </div>
             
-            <div class="vocab-card">
-                <h3>Clothes / Ropa</h3>
+            <div class="vocab-card" role="region" aria-labelledby="clothes-title">
+                <h3 id="clothes-title">Clothes / Ropa</h3>
                 <table>
-                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <thead><tr><th scope="col">English</th><th scope="col">Español</th></tr></thead>
                     <tbody>
                         <tr><td>shirt</td><td>camisa</td></tr>
                         <tr><td>pants</td><td>pantalones</td></tr>
@@ -257,10 +262,10 @@
                 </table>
             </div>
 
-            <div class="vocab-card">
-                <h3>Weather and Seasons / Clima y estaciones</h3>
+            <div class="vocab-card" role="region" aria-labelledby="weather-seasons-title">
+                <h3 id="weather-seasons-title">Weather and Seasons / Clima y estaciones</h3>
                 <table>
-                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <thead><tr><th scope="col">English</th><th scope="col">Español</th></tr></thead>
                     <tbody>
                         <tr><td>sunny</td><td>soleado</td></tr>
                         <tr><td>rainy</td><td>lluvioso</td></tr>
@@ -277,10 +282,10 @@
                 </table>
             </div>
             
-            <div class="vocab-card">
-                <h3>Places in Town / Lugares de la ciudad</h3>
+            <div class="vocab-card" role="region" aria-labelledby="places-town-title">
+                <h3 id="places-town-title">Places in Town / Lugares de la ciudad</h3>
                 <table>
-                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <thead><tr><th scope="col">English</th><th scope="col">Español</th></tr></thead>
                     <tbody>
                         <tr><td>park</td><td>parque</td></tr>
                         <tr><td>school</td><td>escuela</td></tr>
@@ -296,10 +301,10 @@
                 </table>
             </div>
             
-            <div class="vocab-card">
-                <h3>Useful Expressions / Expresiones útiles</h3>
+            <div class="vocab-card" role="region" aria-labelledby="useful-expressions-title">
+                <h3 id="useful-expressions-title">Useful Expressions / Expresiones útiles</h3>
                 <table>
-                    <thead><tr><th>English</th><th>Español</th></tr></thead>
+                    <thead><tr><th scope="col">English</th><th scope="col">Español</th></tr></thead>
                     <tbody>
                         <tr><td>Hello / Hi</td><td>Hola</td></tr>
                         <tr><td>How are you?</td><td>¿Cómo estás?</td></tr>
@@ -315,13 +320,13 @@
                 </table>
             </div>
 
-            <div class="vocab-card full-width">
-                <h3>Verbos en Diferentes Formas (Presente Simple)</h3>
+            <div class="vocab-card full-width" role="region" aria-labelledby="verb-forms-title">
+                <h3 id="verb-forms-title">Verbos en Diferentes Formas (Presente Simple)</h3>
                 <p>Práctica de verbos comunes en diferentes formas de oración (Nivel A1).</p>
                 
                 <h4>Acciones personales</h4>
                 <table>
-                    <thead><tr><th>Verb</th><th>Affirmative</th><th>Negative</th><th>Interrogative</th><th>Third Person</th></tr></thead>
+                    <thead><tr><th scope="col">Verb</th><th scope="col">Affirmative</th><th scope="col">Negative</th><th scope="col">Interrogative</th><th scope="col">Third Person</th></tr></thead>
                     <tbody>
                         <tr><td>like</td><td>I like pizza.</td><td>I don’t like pizza.</td><td>Do you like pizza?</td><td>He likes pizza.</td></tr>
                         <tr><td>play</td><td>I play football.</td><td>I don’t play football.</td><td>Do you play football?</td><td>She plays football.</td></tr>
@@ -333,7 +338,7 @@
 
                 <h4>Rutina diaria</h4>
                 <table>
-                    <thead><tr><th>Verb</th><th>Affirmative</th><th>Negative</th><th>Interrogative</th><th>Third Person</th></tr></thead>
+                    <thead><tr><th scope="col">Verb</th><th scope="col">Affirmative</th><th scope="col">Negative</th><th scope="col">Interrogative</th><th scope="col">Third Person</th></tr></thead>
                     <tbody>
                         <tr><td>wake up</td><td>I wake up at 6.</td><td>I don’t wake up at 6.</td><td>Do you wake up at 6?</td><td>He wakes up at 6.</td></tr>
                         <tr><td>brush teeth</td><td>I brush my teeth.</td><td>I don’t brush my teeth.</td><td>Do you brush your teeth?</td><td>She brushes her teeth.</td></tr>
@@ -345,7 +350,7 @@
 
                 <h4>Tiempo libre</h4>
                 <table>
-                    <thead><tr><th>Verb</th><th>Affirmative</th><th>Negative</th><th>Interrogative</th><th>Third Person</th></tr></thead>
+                    <thead><tr><th scope="col">Verb</th><th scope="col">Affirmative</th><th scope="col">Negative</th><th scope="col">Interrogative</th><th scope="col">Third Person</th></tr></thead>
                     <tbody>
                         <tr><td>listen</td><td>I listen to music.</td><td>I don’t listen to music.</td><td>Do you listen to music?</td><td>She listens to music.</td></tr>
                         <tr><td>read</td><td>I read books.</td><td>I don’t read books.</td><td>Do you read books?</td><td>He reads books.</td></tr>
@@ -357,7 +362,7 @@
 
                 <h4>Comida y bebidas</h4>
                 <table>
-                    <thead><tr><th>Verb</th><th>Affirmative</th><th>Negative</th><th>Interrogative</th><th>Third Person</th></tr></thead>
+                    <thead><tr><th scope="col">Verb</th><th scope="col">Affirmative</th><th scope="col">Negative</th><th scope="col">Interrogative</th><th scope="col">Third Person</th></tr></thead>
                     <tbody>
                         <tr><td>eat</td><td>I eat rice.</td><td>I don’t eat rice.</td><td>Do you eat rice?</td><td>He eats rice.</td></tr>
                         <tr><td>drink</td><td>I drink water.</td><td>I don’t drink water.</td><td>Do you drink water?</td><td>She drinks water.</td></tr>
@@ -369,7 +374,7 @@
 
                 <h4>Escuela</h4>
                 <table>
-                    <thead><tr><th>Verb</th><th>Affirmative</th><th>Negative</th><th>Interrogative</th><th>Third Person</th></tr></thead>
+                    <thead><tr><th scope="col">Verb</th><th scope="col">Affirmative</th><th scope="col">Negative</th><th scope="col">Interrogative</th><th scope="col">Third Person</th></tr></thead>
                     <tbody>
                         <tr><td>study</td><td>I study math.</td><td>I don’t study math.</td><td>Do you study math?</td><td>He studies math.</td></tr>
                         <tr><td>write</td><td>I write in my notebook.</td><td>I don’t write in my notebook.</td><td>Do you write in your notebook?</td><td>She writes in her notebook.</td></tr>
@@ -382,237 +387,10 @@
         </div>
     </section>
 
-
-    <div class="chatbot-container">
-        <button id="chatbot-button" onclick="toggleChat()">🤖 ChatBot IA</button>
-        <div id="chatbot-window">
-            <div class="chatbot-header">Chat con tu Tutor Virtual</div>
-            <div class="chatbot-body">
-                <p>¡Hola! Soy tu asistente de inglés. Pregúntame sobre el vocabulario o la gramática A1.</p>
-                <p class="nota">**NOTA IMPORTANTE:** Esta es una simulación de interfaz. Integrar una IA real requiere servicios avanzados.</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Función para el ChatBot
-        function toggleChat() {
-            var chatWindow = document.getElementById('chatbot-window');
-            chatWindow.style.display = chatWindow.style.display === 'block' ? 'none' : 'block';
-        }
-
-        // --- LÓGICA DE ACTIVIDADES INTERACTIVAS ---
-
-        // DATOS DE LAS ACTIVIDADES
-        const fillInWords = ["breakfast", "hipsters", "fun", "night", "deadlines", "happy", "right", "dancing", "you", "22"]; // Palabras de la cancion
-        
-        const matchPairs = [
-            { en: "night", es: "noche" },
-            { en: "friends", es: "amigos" },
-            { en: "breakfast", es: "desayuno" },
-            { en: "dancing", es: "bailar" },
-            { en: "feel", es: "sentirse" },
-            { en: "heartbreak", es: "corazón roto" },
-            { en: "fun", es: "diversión" },
-            { en: "right", es: "correcto" }
-        ];
-
-        // 1. FILL IN THE BLANKS (Arrastrar y Soltar Simulado)
-
-        function initializeFillInTheBlanks() {
-            const wordBank = document.getElementById('word-bank');
-            const words = shuffleArray([...fillInWords]); 
-
-            words.forEach(word => {
-                const draggable = document.createElement('span');
-                draggable.className = 'draggable-word';
-                draggable.textContent = word;
-                draggable.setAttribute('draggable', true);
-                draggable.addEventListener('dragstart', dragStart);
-                wordBank.appendChild(draggable);
-            });
-
-            document.querySelectorAll('.drop-zone').forEach(zone => {
-                zone.addEventListener('dragover', dragOver);
-                zone.addEventListener('drop', drop);
-                zone.addEventListener('dragleave', dragLeave);
-            });
-        }
-
-        let draggedElement = null;
-
-        function dragStart(e) {
-            draggedElement = e.target;
-            e.dataTransfer.setData('text/plain', e.target.textContent);
-            setTimeout(() => e.target.classList.add('hide'), 0);
-        }
-
-        function dragOver(e) {
-            e.preventDefault();
-            if (e.target.children.length === 0) {
-                e.target.classList.add('drag-over');
-            }
-        }
-
-        function dragLeave(e) {
-            e.target.classList.remove('drag-over');
-        }
-
-        function drop(e) {
-            e.preventDefault();
-            e.target.classList.remove('drag-over');
-
-            if (e.target.children.length === 0 && e.target.classList.contains('drop-zone')) {
-                // Crear un duplicado visual para dejar en el drop-zone
-                const clone = draggedElement.cloneNode(true);
-                clone.removeAttribute('draggable');
-                clone.classList.remove('hide');
-                clone.classList.add('dropped');
-                e.target.appendChild(clone);
-                
-                // Ocultar el original del banco
-                draggedElement.style.visibility = 'hidden'; 
-                draggedElement.classList.add('used'); 
-            }
-        }
-
-        function checkFillInTheBlanks() {
-            let correctCount = 0;
-            const totalBlanks = document.querySelectorAll('.drop-zone').length;
-            
-            document.querySelectorAll('.drop-zone').forEach(zone => {
-                const droppedWordElement = zone.querySelector('.dropped');
-                if (droppedWordElement) {
-                    const droppedWord = droppedWordElement.textContent.trim().toLowerCase();
-                    const correctWord = zone.getAttribute('data-correct').toLowerCase();
-
-                    if (droppedWord === correctWord) {
-                        zone.classList.add('correct');
-                        zone.classList.remove('incorrect');
-                        correctCount++;
-                    } else {
-                        zone.classList.add('incorrect');
-                        zone.classList.remove('correct');
-                    }
-                } else {
-                    zone.classList.remove('correct', 'incorrect');
-                }
-            });
-
-            const resultMessage = document.getElementById('fill-in-result');
-            if (correctCount === totalBlanks) {
-                resultMessage.textContent = '¡Felicidades! Todas las respuestas son correctas. 🎉';
-                resultMessage.style.color = 'green';
-            } else {
-                resultMessage.textContent = `Tienes ${correctCount} de ${totalBlanks} respuestas correctas. ¡Sigue practicando!`;
-                resultMessage.style.color = 'red';
-            }
-        }
-
-
-        // 2. VOCABULARY MATCH (Seleccionar y Verificar)
-
-        let selectedEnglishCard = null;
-        let selectedSpanishCard = null;
-        let matchedPairs = 0;
-
-        function initializeMatchGame() {
-            const matchGrid = document.getElementById('match-grid');
-            
-            // Crear una lista plana y desordenada de todas las tarjetas
-            const cards = [];
-            matchPairs.forEach(pair => {
-                cards.push({ text: pair.en, lang: 'en', match: pair.es });
-                cards.push({ text: pair.es, lang: 'es', match: pair.en });
-            });
-
-            const shuffledCards = shuffleArray(cards);
-            
-            shuffledCards.forEach(cardData => {
-                const card = document.createElement('div');
-                card.className = 'match-card';
-                card.textContent = cardData.text;
-                card.setAttribute('data-lang', cardData.lang);
-                card.setAttribute('data-match', cardData.match);
-                card.addEventListener('click', () => selectCard(card));
-                matchGrid.appendChild(card);
-            });
-        }
-
-        function selectCard(card) {
-            if (card.classList.contains('matched') || card.classList.contains('selected')) {
-                return;
-            }
-
-            // Deseleccionar si ya hay una del mismo tipo
-            if (card.getAttribute('data-lang') === 'en' && selectedEnglishCard) {
-                selectedEnglishCard.classList.remove('selected');
-                selectedEnglishCard = null;
-            } else if (card.getAttribute('data-lang') === 'es' && selectedSpanishCard) {
-                selectedSpanishCard.classList.remove('selected');
-                selectedSpanishCard = null;
-            }
-            
-            card.classList.add('selected');
-
-            if (card.getAttribute('data-lang') === 'en') {
-                selectedEnglishCard = card;
-            } else {
-                selectedSpanishCard = card;
-            }
-
-            // Verificar match
-            if (selectedEnglishCard && selectedSpanishCard) {
-                const enMatch = selectedEnglishCard.getAttribute('data-match');
-                const esText = selectedSpanishCard.textContent;
-
-                if (enMatch.toLowerCase() === esText.toLowerCase()) {
-                    // Match correcto
-                    selectedEnglishCard.classList.add('matched');
-                    selectedSpanishCard.classList.add('matched');
-                    selectedEnglishCard.classList.remove('selected');
-                    selectedSpanishCard.classList.remove('selected');
-                    
-                    selectedEnglishCard = null;
-                    selectedSpanishCard = null;
-                    matchedPairs++;
-
-                    if (matchedPairs === matchPairs.length) {
-                        document.getElementById('match-result').textContent = '¡Juego completo! Excelente. 🎉';
-                        document.getElementById('match-result').style.color = 'green';
-                    }
-                } else {
-                    // Match incorrecto: resaltar brevemente y deseleccionar
-                    selectedEnglishCard.classList.add('mismatch');
-                    selectedSpanishCard.classList.add('mismatch');
-                    
-                    setTimeout(() => {
-                        selectedEnglishCard.classList.remove('selected', 'mismatch');
-                        selectedSpanishCard.classList.remove('selected', 'mismatch');
-                        selectedEnglishCard = null;
-                        selectedSpanishCard = null;
-                    }, 800);
-                }
-            }
-        }
-
-
-        // Utilidad para desordenar un array (Algoritmo de Fisher-Yates)
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
-        // Inicializar los juegos cuando la página carga
-        window.onload = function() {
-            initializeFillInTheBlanks();
-            initializeMatchGame();
-        };
-
-    </script>
+    <aside class="chatbot-container" role="complementary" aria-label="Asistente de Chat de Inglés">
+        <button id="chatbot-button" onclick="toggleChat()" aria-expanded="false" aria-controls="chatbot-window">🤖 ChatBot IA</button>
+        <div id="chatbot-window" role="dialog" aria-modal
 
 </body>
 </html>
+
