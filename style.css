@@ -509,6 +509,7 @@ footer {
     box-shadow: var(--shadow);
 }
 
+
 /* --- 8. DISEÑO RESPONSIVE (MÓVIL) --- */
 @media (max-width: 768px) {
     header {
@@ -540,4 +541,6 @@ footer {
     .vocabulary-grid {
         grid-template-columns: 1fr;
     }
+    
+    /* Se eliminaron los estilos de ChatBot */
 }
