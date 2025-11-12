@@ -604,7 +604,7 @@
                 zone.addEventListener('drop', drop);
                 zone.addEventListener('dragleave', dragLeave);
                 
-                // Lógica para devolver palabra al banco haciendo clic en la zona de soltar (¡NUEVO!)
+                // Lógica para devolver palabra al banco haciendo clic en la zona de soltar (¡CORREGIDA!)
                 zone.addEventListener('click', function(e) {
                     // Determina si el clic fue en la zona o en la palabra soltada
                     let targetZone = e.currentTarget; 
@@ -621,13 +621,13 @@
                         targetZone.innerHTML = '';
                         targetZone.classList.remove('correct', 'incorrect');
                         
-                        // 2. Buscar el elemento original en el banco (usando data-word) y hacerlo visible
-                        // Usamos [data-word="${wordText}"] para buscar el original
+                        // 2. Buscar el elemento original en el banco, hacerlo visible y ELIMINAR LA CLASE 'hide'
                         const originalWord = document.querySelector(`.draggable-word[data-word="${wordText}"].used`);
                         
                         if (originalWord) {
                             originalWord.style.visibility = 'visible';
                             originalWord.classList.remove('used');
+                            originalWord.classList.remove('hide'); // <--- ¡CORRECCIÓN APLICADA!
                         }
                     }
                 });
@@ -860,7 +860,3 @@
 
 </body>
 </html>
-
-
-
-
