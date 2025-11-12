@@ -65,7 +65,7 @@ header {
     100% { transform: translate(var(--x), var(--y)) rotate(720deg) scale(0); opacity: 0; }
 }
 
-/* Fireworks (NUEVO) */
+/* Fireworks */
 .firework {
     position: absolute;
     top: var(--y);
@@ -329,6 +329,10 @@ h4 {
     gap: 10px;
     min-height: 50px;
     border: 2px dashed var(--color-primary-light);
+    transition: background-color 0.2s; /* Transición para drag-over */
+}
+.word-bank.drag-over {
+    background-color: var(--color-bg-alt);
 }
 
 .draggable-word {
@@ -347,7 +351,12 @@ h4 {
     cursor: grabbing;
 }
 
-.draggable-word.hide, .draggable-word.used {
+/* Clase 'hide' para ocultar mientras se arrastra */
+.draggable-word.hide {
+    opacity: 0.3;
+}
+/* Clase 'used' ya no es necesaria con la nueva lógica, pero la dejamos por si acaso */
+.draggable-word.used {
     visibility: hidden;
     opacity: 0;
 }
@@ -368,18 +377,21 @@ h4 {
     text-align: center;
     position: relative;
     vertical-align: middle;
+    /* Asegura que tenga espacio para la palabra */
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 .drop-zone.drag-over {
     background-color: var(--color-primary-light);
 }
 
-.dropped {
+/* La palabra 'dropped' es un 'draggable-word' dentro de un 'drop-zone' */
+.drop-zone .dropped {
     background-color: var(--color-accent); 
     color: var(--color-text);
-    padding: 2px 5px;
-    border-radius: 3px;
     font-weight: bold;
+    cursor: grab; /* Permitir agarrarlo de nuevo */
 }
 
 .drop-zone.correct {
@@ -620,5 +632,83 @@ h4 {
         background: var(--color-primary-light);
         border-radius: 10px;
     }
+}
+
+/* --- 9. ESTILO ENLACE CANCIÓN (NUEVO) --- */
+.song-link {
+    color: var(--color-accent); /* Color verde de acento */
+    font-weight: 700; /* Negrita */
+    text-decoration: none; /* Quita el subrayado por defecto */
+    transition: transform 0.2s ease;
+    display: inline-block; /* Necesario para la animación de 'transform' */
+}
+
+.song-link:hover {
+    color: #92b672; /* Tono más oscuro de acento (tomado del .check-button:hover) */
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+    transform: scale(1.05); /* Efecto de 'pop' */
+}
+
+/* --- 10. MODAL DE FELICITACIONES (NUEVO) --- */
+.modal-overlay {
+    /* Oculto por defecto */
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    
+    /* Centrado */
+    justify-content: center;
+    align-items: center;
+
+    /* Animación */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Clase para mostrar el modal */
+.modal-overlay.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--color-white);
+    padding: 30px 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    
+    /* Animación de entrada */
+    transform: scale(0.7);
+    transition: transform 0.3s ease-out;
+}
+.modal-overlay.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-content h2 {
+    color: var(--color-accent); /* Color verde de acento */
+    font-size: 2.5em;
+    margin-top: 0;
+}
+
+.modal-content p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+}
+
+/* Reutilizamos el estilo del botón de verificar */
+.modal-content .check-button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+.modal-content .check-button:hover {
+    background-color: #4c6476; /* Tono más oscuro de azul */
+    transform: scale(1.05);
 }
 
