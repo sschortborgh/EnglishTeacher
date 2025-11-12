@@ -592,6 +592,7 @@
                 draggable.className = 'draggable-word';
                 draggable.textContent = word;
                 draggable.setAttribute('draggable', true);
+                draggable.setAttribute('data-word', word); // <-- AGREGADO para identificar la palabra original
                 draggable.addEventListener('dragstart', dragStart);
                 wordBank.appendChild(draggable);
             });
@@ -602,6 +603,34 @@
                 zone.addEventListener('dragover', dragOver);
                 zone.addEventListener('drop', drop);
                 zone.addEventListener('dragleave', dragLeave);
+                
+                // Lógica para devolver palabra al banco haciendo clic en la zona de soltar (¡NUEVO!)
+                zone.addEventListener('click', function(e) {
+                    // Determina si el clic fue en la zona o en la palabra soltada
+                    let targetZone = e.currentTarget; 
+                    if (e.target.classList.contains('dropped')) {
+                        targetZone = e.target.parentElement;
+                    }
+
+                    const droppedWordElement = targetZone.querySelector('.dropped');
+                    
+                    if (droppedWordElement) {
+                        const wordText = droppedWordElement.textContent.trim();
+                        
+                        // 1. Eliminar la palabra del drop-zone (limpia la zona)
+                        targetZone.innerHTML = '';
+                        targetZone.classList.remove('correct', 'incorrect');
+                        
+                        // 2. Buscar el elemento original en el banco (usando data-word) y hacerlo visible
+                        // Usamos [data-word="${wordText}"] para buscar el original
+                        const originalWord = document.querySelector(`.draggable-word[data-word="${wordText}"].used`);
+                        
+                        if (originalWord) {
+                            originalWord.style.visibility = 'visible';
+                            originalWord.classList.remove('used');
+                        }
+                    }
+                });
             });
             const resultMsg = document.getElementById('fill-in-result');
             if (resultMsg) resultMsg.textContent = ''; 
@@ -831,6 +860,7 @@
 
 </body>
 </html>
+
 
 
 
