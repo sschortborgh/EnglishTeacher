@@ -322,7 +322,10 @@
         <div class="activity-card">
             <h4>Activity 1: Fill in the Blanks (Completa los espacios)</h4>
             <p>Escucha la canción y arrastra las palabras del banco para completar la letra.</p>
-            
+
+            <div class="video-reproductor-actividad">
+                <iframe src="https://www.youtube.com/embed/AgfeV1f2AEM" title="Taylor Swift - 22 (Official Music Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
             <div class="word-bank" id="word-bank">
                 
 </div>
@@ -592,7 +595,7 @@
                 draggable.className = 'draggable-word';
                 draggable.textContent = word;
                 draggable.setAttribute('draggable', true);
-                draggable.setAttribute('data-word', word); // <-- AGREGADO para identificar la palabra original
+                draggable.setAttribute('data-word', word); 
                 draggable.addEventListener('dragstart', dragStart);
                 wordBank.appendChild(draggable);
             });
@@ -604,7 +607,7 @@
                 zone.addEventListener('drop', drop);
                 zone.addEventListener('dragleave', dragLeave);
                 
-                // Lógica para devolver palabra al banco haciendo clic en la zona de soltar (¡CORREGIDA!)
+                // Lógica para devolver palabra al banco haciendo clic en la zona de soltar (CORREGIDA)
                 zone.addEventListener('click', function(e) {
                     // Determina si el clic fue en la zona o en la palabra soltada
                     let targetZone = e.currentTarget; 
