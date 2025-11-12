@@ -65,7 +65,7 @@
                         <tr><td>teacher</td><td>profesor/a</td></tr>
                         <tr><td>student</td><td>estudiante</td></tr>
                         <tr><td>book</td><td>libro</td></tr>
-                        <tr><td>notebook</td><td>cuaderno</td></tr>
+                        <tr><td>notebook</td><td>cuerno</td></tr>
                         <tr><td>pen / pencil</td><td>bolígrafo / lápiz</td></tr>
                         <tr><td>backpack</td><td>mochila</td></tr>
                         <tr><td>desk</td><td>escritorio</td></tr>
@@ -321,7 +321,7 @@
 
         <div class="activity-card">
             <h4>Activity 1: Fill in the Blanks (Completa los espacios)</h4>
-            <p>Escucha la canción y arrastra las palabras del banco para completar la letra.</p>
+            <p>Escucha la <a href="https://www.youtube.com/watch?v=AgFeZr5ptV8" target="_blank" class="song-link">canción</a> y arrastra las palabras del banco para completar la letra.</p>
             
             <div class="word-bank" id="word-bank">
                 
@@ -400,6 +400,13 @@
         </div>
     </div>
 
+    <div class="modal-overlay" id="success-modal">
+        <div class="modal-content">
+            <h2 id="modal-title">¡Felicidades!</h2>
+            <p>¡Has completado la actividad perfectamente!</p>
+            <button class="check-button" id="close-modal-btn">¡Genial!</button>
+        </div>
+    </div>
     <footer>
         <p>© 2025 Clase de Inglés A1. Todos los derechos reservados.</p>
     </footer>
@@ -434,15 +441,12 @@
             for (let i = 0; i < numFireworks; i++) {
                 const x = Math.random() * window.innerWidth;
                 const y = Math.random() * window.innerHeight * 0.7; 
-
                 const color = colors[Math.floor(Math.random() * colors.length)];
-
                 const firework = document.createElement('div');
                 firework.className = 'firework';
                 firework.style.setProperty('--x', `${x}px`);
                 firework.style.setProperty('--y', `${y}px`);
                 firework.style.setProperty('--color', color);
-                
                 document.body.appendChild(firework);
 
                 for (let j = 0; j < 30; j++) {
@@ -462,12 +466,6 @@
                     const distance = Math.random() * 100;
 
                     const styleSheet = document.styleSheets[0];
-                    const ruleText = `@keyframes particleExplode-${i}-${j} {
-                        0% { transform: translate(0, 0) scale(0); opacity: 1; }
-                        20% { opacity: 1; transform: translate(0, 0) scale(1); } 
-                        100% { transform: translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance - 50}px) scale(0); opacity: 0; }
-                    }`;
-                    // Usar un nombre de animación más simple si el index es muy grande
                     const animationName = `pE${i}-${j}`;
                     const newRuleText = `@keyframes ${animationName} {
                         0% { transform: translate(0, 0) scale(0); opacity: 1; }
@@ -479,17 +477,14 @@
                         styleSheet.insertRule(newRuleText, styleSheet.cssRules.length);
                         particle.style.animation = `${animationName} 0.8s forwards`;
                     } catch (e) {
-                        // Fallback si la hoja de estilos está llena o hay error
                         // console.error("Could not insert rule:", e);
                     }
                     
                     document.body.appendChild(particle);
-
                     particle.addEventListener('animationend', () => {
                         particle.remove();
                     });
                 }
-
                 firework.addEventListener('animationend', () => {
                     firework.remove();
                 });
@@ -497,7 +492,7 @@
         }
 
 
-        // --- Carrusel de Consejos Diarios (NUEVO) ---
+        // --- Carrusel de Consejos Diarios ---
         const dailyTips = [
             { title: "Tip del Día: ¡Inmersión!", tip: "Escucha música en inglés y busca las letras." },
             { title: "Tip del Día: ¡Media!", tip: "Ve tus series favoritas con subtítulos en inglés." },
@@ -513,35 +508,26 @@
         function updateDailyTip() {
             const titleElement = document.getElementById('rotating-title');
             const tipElement = document.getElementById('daily-tip');
-            
             if (!titleElement || !tipElement) return;
-
-            // Transición de opacidad para que el cambio no sea brusco
             titleElement.style.opacity = '0';
             tipElement.style.opacity = '0';
-
             setTimeout(() => {
-                // Alternar para que aparezca el tip
                 const tipData = dailyTips[currentTipIndex];
-                
                 titleElement.textContent = tipData.title + ' 💡'; 
                 tipElement.textContent = tipData.tip;
-
                 titleElement.style.opacity = '1';
                 tipElement.style.opacity = '1';
                 tipElement.style.display = 'block';
-
                 currentTipIndex = (currentTipIndex + 1) % dailyTips.length;
-            }, 500); // Esperar a que la opacidad baje antes de cambiar el texto
+            }, 500); 
         }
-        setInterval(updateDailyTip, 7000); // Cambiar consejo cada 7 segundos
+        setInterval(updateDailyTip, 7000); 
 
 
-        // Función para el ChatBot (con Easter Egg de rebote)
+        // --- ChatBot ---
         function toggleChat() {
             var chatWindow = document.getElementById('chatbot-window');
             var isHidden = chatWindow.style.display === 'block';
-
             if (isHidden) {
                 chatWindow.style.display = 'none';
                 chatWindow.classList.remove('chatbot-window-open');
@@ -551,18 +537,39 @@
             }
         }
 
-        // --- LÓGICA DE ACTIVIDADES INTERACTIVAS (Sin cambios aquí) ---
+        // --- LÓGICA DE ACTIVIDADES INTERACTIVAS (CORREGIDA) ---
+        
+        // 👇 FUNCIONES DEL MODAL DE FELICITACIONES (NUEVAS) 👇
+        function showSuccessModal(title) {
+            const modal = document.getElementById('success-modal');
+            const modalTitle = document.getElementById('modal-title');
+            if (modal && modalTitle) {
+                modalTitle.textContent = title; // Personaliza el título
+                modal.classList.add('show');
+                launchFireworks(); // ¡Aquí lanzamos el confeti!
+            }
+        }
 
+        function hideSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            if (modal) {
+                modal.classList.remove('show');
+            }
+        }
+        // 👆 FIN DE LAS FUNCIONES NUEVAS 👆
+
+        // Palabras para Actividad 1 (Fill in the Blanks)
         const fillInWordsBank = [
             "night", "hipsters", "fun", "night", "dancing", "happy", 
             "night", "deadlines", "you", "22", "right", "dancing",
             "miserable", "magical", "forget", "want", "keep"
         ]; 
         
+        // Palabras para Actividad 2 (Match)
         const matchPairs = [
             { en: "night", es: "noche" },
             { en: "friends", es: "amigos" },
-            { en: "breakfast", es: "desayuno" },
+            { en: "breakfast", es: "desayuno" }, 
             { en: "dancing", es: "bailar" },
             { en: "feel", es: "sentirse" },
             { en: "heartbreak", es: "corazón roto" },
@@ -579,7 +586,7 @@
             return newArray;
         }
 
-        // 1. FILL IN THE BLANKS
+        // 1. FILL IN THE BLANKS (LÓGICA CORREGIDA)
         let draggedElement = null;
 
         function initializeFillInTheBlanks() {
@@ -595,14 +602,20 @@
                 draggable.textContent = word;
                 draggable.setAttribute('draggable', true);
                 draggable.addEventListener('dragstart', dragStart);
+                draggable.addEventListener('dragend', dragEnd); // CORREGIDO
                 wordBank.appendChild(draggable);
             });
+
+            // CORREGIDO: Hacer que el banco de palabras también sea una zona para soltar
+            wordBank.addEventListener('dragover', dragOver);
+            wordBank.addEventListener('drop', dropOnBank); 
+            wordBank.addEventListener('dragleave', dragLeave);
 
             document.querySelectorAll('.drop-zone').forEach(zone => {
                 zone.innerHTML = ''; 
                 zone.classList.remove('correct', 'incorrect');
                 zone.addEventListener('dragover', dragOver);
-                zone.addEventListener('drop', drop);
+                zone.addEventListener('drop', dropOnZone); // CORREGIDO
                 zone.addEventListener('dragleave', dragLeave);
             });
             const resultMsg = document.getElementById('fill-in-result');
@@ -617,10 +630,21 @@
             }, 0);
         }
 
+        // CORREGIDO: Se ejecuta siempre que sueltas el click
+        function dragEnd(e) {
+            if (e.target) {
+                e.target.classList.remove('hide');
+            }
+            draggedElement = null; 
+        }
+
+
         function dragOver(e) {
             e.preventDefault();
-            if (e.target.children.length === 0 && e.target.classList.contains('drop-zone')) {
-                e.target.classList.add('drag-over');
+            const target = e.target;
+            // CORREGIDO: Permitir soltar si es un drop-zone vacío O si es el word-bank
+            if ((target.classList.contains('drop-zone') && target.children.length === 0) || target.classList.contains('word-bank')) {
+                target.classList.add('drag-over');
             }
         }
 
@@ -628,29 +652,42 @@
             e.target.classList.remove('drag-over');
         }
 
-        function drop(e) {
+        // CORREGIDO: Función para soltar en un espacio de la letra
+        function dropOnZone(e) {
             e.preventDefault();
             e.target.classList.remove('drag-over');
 
             if (e.target.children.length === 0 && e.target.classList.contains('drop-zone') && draggedElement) {
-                const clone = draggedElement.cloneNode(true);
-                clone.removeAttribute('draggable');
-                clone.classList.remove('hide', 'draggable-word');
-                clone.classList.add('dropped');
-                e.target.appendChild(clone);
-                
-                draggedElement.style.visibility = 'hidden'; 
-                draggedElement.classList.add('used'); 
-                draggedElement = null; 
+                draggedElement.classList.remove('hide'); 
+                draggedElement.classList.remove('draggable-word'); 
+                draggedElement.classList.add('dropped'); 
+                e.target.appendChild(draggedElement); 
             }
         }
+
+        // CORREGIDO: Función para soltar de regreso en el banco de palabras
+        function dropOnBank(e) {
+            e.preventDefault();
+            const target = e.target;
+            target.classList.remove('drag-over');
+
+            if (draggedElement && (target.classList.contains('word-bank') || e.target.id === 'word-bank')) {
+                draggedElement.classList.remove('hide');
+                draggedElement.classList.remove('dropped'); 
+                draggedElement.classList.add('draggable-word'); 
+                
+                // Asegurarse de que se añade al div 'word-bank' principal, no a otro span
+                document.getElementById('word-bank').appendChild(draggedElement);
+            }
+        }
+
 
         function checkFillInTheBlanks() {
             let correctCount = 0;
             const totalBlanks = document.querySelectorAll('.drop-zone').length;
             
             document.querySelectorAll('.drop-zone').forEach(zone => {
-                const droppedWordElement = zone.querySelector('.dropped');
+                const droppedWordElement = zone.querySelector('.dropped'); 
                 if (droppedWordElement) {
                     const droppedWord = droppedWordElement.textContent.trim().toLowerCase();
                     const correctWord = zone.getAttribute('data-correct').toLowerCase();
@@ -672,7 +709,10 @@
             if (correctCount === totalBlanks) {
                 resultMessage.textContent = '¡Felicidades! Todas las respuestas son correctas. 🎉';
                 resultMessage.style.color = 'green';
-                launchFireworks(); 
+                
+                // 👇 MODAL DE ÉXITO 👇
+                showSuccessModal('¡Letra Completa!');
+
             } else {
                 resultMessage.textContent = `Tienes ${correctCount} de ${totalBlanks} respuestas correctas. ¡Sigue practicando!`;
                 resultMessage.style.color = 'red';
@@ -688,21 +728,16 @@
         function initializeMatchGame() {
             const matchGrid = document.getElementById('match-grid');
             if (!matchGrid) return;
-
             matchGrid.innerHTML = ''; 
             const resultMsg = document.getElementById('match-result');
             if (resultMsg) resultMsg.textContent = ''; 
-
             matchedPairsCount = 0;
-
             const cards = [];
             matchPairs.forEach(pair => {
                 cards.push({ text: pair.en, lang: 'en', match: pair.es });
                 cards.push({ text: pair.es, lang: 'es', match: pair.en });
             });
-
             const shuffledCards = shuffleArray(cards);
-            
             shuffledCards.forEach(cardData => {
                 const card = document.createElement('div');
                 card.className = 'match-card';
@@ -718,7 +753,6 @@
             if (card.classList.contains('matched') || card.classList.contains('selected')) {
                 return;
             }
-
             if (card.getAttribute('data-lang') === 'en' && selectedEnglishCard) {
                 selectedEnglishCard.classList.remove('selected');
                 selectedEnglishCard = null;
@@ -726,46 +760,39 @@
                 selectedSpanishCard.classList.remove('selected');
                 selectedSpanishCard = null;
             }
-            
             card.classList.add('selected');
-
             if (card.getAttribute('data-lang') === 'en') {
                 selectedEnglishCard = card;
             } else {
                 selectedSpanishCard = card;
             }
-
             if (selectedEnglishCard && selectedSpanishCard) {
                 const enMatch = selectedEnglishCard.getAttribute('data-match');
                 const esText = selectedSpanishCard.textContent;
-
                 if (enMatch.toLowerCase() === esText.toLowerCase()) {
                     selectedEnglishCard.classList.add('matched');
                     selectedSpanishCard.classList.add('matched');
                     selectedEnglishCard.classList.remove('selected');
                     selectedSpanishCard.classList.remove('selected');
-                    
                     selectedEnglishCard = null;
                     selectedSpanishCard = null;
                     matchedPairsCount++;
-
                     if (matchedPairsCount === matchPairs.length) {
                         document.getElementById('match-result').textContent = '¡Juego completo! Excelente. 🎉';
                         document.getElementById('match-result').style.color = 'green';
-                        launchFireworks(); 
+                        
+                        // 👇 MODAL DE ÉXITO 👇
+                        showSuccessModal('¡Pares Encontrados!');
                     }
                 } else {
                     const tempEnCard = selectedEnglishCard;
                     const tempEsCard = selectedSpanishCard;
-
                     tempEnCard.classList.add('mismatch');
                     tempEsCard.classList.add('mismatch');
-                    
                     setTimeout(() => {
                         tempEnCard.classList.remove('selected', 'mismatch');
                         tempEsCard.classList.remove('selected', 'mismatch');
                     }, 800);
-
                     selectedEnglishCard = null;
                     selectedSpanishCard = null;
                 }
@@ -777,20 +804,15 @@
         function setupTabs() {
             const tabButtons = document.querySelectorAll('.tab-button');
             const vocabCards = document.querySelectorAll('.vocabulary-grid .vocab-card');
-
             if (tabButtons.length === 0) return;
-
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const selectedTab = button.getAttribute('data-tab');
-
                     tabButtons.forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
-
                     vocabCards.forEach(card => {
                         const category = card.getAttribute('data-category');
                         const isVisible = (selectedTab === 'all') || (category === selectedTab);
-
                         if (isVisible) {
                             card.classList.remove('card-hidden');
                         } else {
@@ -799,7 +821,6 @@
                     });
                 });
             });
-
             setTimeout(() => {
                 const allButton = document.querySelector('.tab-button[data-tab="all"]');
                 if (allButton) {
@@ -814,9 +835,18 @@
             initializeFillInTheBlanks();
             initializeMatchGame();
             setupTabs();
-            
-            // Reemplazar el título estático con el primer consejo
             updateDailyTip();
+
+            // 👇 LISTENERS PARA EL MODAL (NUEVOS) 👇
+            document.getElementById('close-modal-btn').addEventListener('click', hideSuccessModal);
+            
+            // Cierra el modal si se hace clic fuera del contenido
+            document.getElementById('success-modal').addEventListener('click', function(e) {
+                if (e.target.id === 'success-modal') {
+                    hideSuccessModal();
+                }
+            });
+            
         });
 
     </script>
