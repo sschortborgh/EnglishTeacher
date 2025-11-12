@@ -322,13 +322,7 @@
         <div class="activity-card">
             <h4>Activity 1: Fill in the Blanks (Completa los espacios)</h4>
             <p>Escucha la canción y arrastra las palabras del banco para completar la letra.</p>
-
-            <div class="audio-reproductor-actividad">
-                <audio controls>
-                    <source src="Taylor Swift - 22.mp3" type="audio/mpeg">
-                    Tu navegador no soporta el elemento de audio.
-                </audio>
-            </div>
+            
             <div class="word-bank" id="word-bank">
                 
 </div>
@@ -336,7 +330,7 @@
             <div class="lyrics-container">
                 <p>It feels like a perfect <span class="drop-zone" data-correct="night"></span> To dress up like <span class="drop-zone" data-correct="hipsters"></span>
                 And make <span class="drop-zone" data-correct="fun"></span> of our exes, uh uh, uh uh.</p>
-                <p>It feels like a perfect <span class="drop-zone" data-correct="night"></span> For <span class="drop-zone" data-correct="dancing"></span> at midnight
+                <p>It feels like a perfect <span class="drop-zone" data-correct="night"></span> For <span class="drop-zone" data-correct="breakfast"></span> at midnight
                 To fall in love with strangers, uh uh, uh uh.</p>
                 <p>Yeah, We’re <span class="drop-zone" data-correct="happy"></span>, free, confused and lonely at the same time,
                 It’s miserable and magical, oh yeah. Tonight’s the <span class="drop-zone" data-correct="night"></span>
@@ -395,14 +389,6 @@
         </div>
     </section>
 
-    <div class="modal-overlay" id="success-modal">
-        <div class="modal-content">
-            <h2 id="modal-title">¡Felicidades! 🎉</h2>
-            <p id="modal-message">¡Has completado la actividad correctamente!</p>
-            <button id="close-modal-btn">¡Genial!</button>
-        </div>
-    </div>
-    
     <footer>
         <p>© 2025 Clase de Inglés A1. Todos los derechos reservados.</p>
     </footer>
@@ -533,36 +519,13 @@
         setInterval(updateDailyTip, 7000); // Cambiar consejo cada 7 segundos
 
 
-        // --- LÓGICA DEL MODAL DE ÉXITO ---
-        function showSuccessModal(title = '¡Felicidades! 🎉', message = '¡Has completado la actividad correctamente!') {
-            const modal = document.getElementById('success-modal');
-            const modalTitle = document.getElementById('modal-title');
-            const modalMessage = document.getElementById('modal-message');
-
-            if (modal) {
-                if (modalTitle) modalTitle.textContent = title;
-                if (modalMessage) modalMessage.textContent = message;
-                
-                modal.classList.add('show');
-                launchFireworks(); // Mostrar confeti al mostrar el modal
-            }
-        }
-
-        function hideSuccessModal() {
-            const modal = document.getElementById('success-modal');
-            if (modal) {
-                modal.classList.remove('show');
-            }
-        }
-
-
         // --- LÓGICA DE ACTIVIDADES INTERACTIVAS ---
 
-        // Palabras para arrastrar (incluyendo las correctas y las de distracción con "breakfast")
+        // Palabras para arrastrar (Una instancia de 'dancing' se reemplaza por 'breakfast')
         const fillInWordsBank = [
-            "night", "hipsters", "fun", "night", "dancing", "happy", 
-            "night", "deadlines", "you", "22", "right", "dancing",
-            "miserable", "magical", "forget", "want", "keep", "breakfast" // <-- "breakfast" incluido
+            "night", "hipsters", "fun", "night", "breakfast", // Reemplazo
+            "happy", "night", "deadlines", "you", "22", "right", "dancing", // La segunda instancia de dancing se mantiene
+            "miserable", "magical", "forget", "want", "keep" // Distracciones
         ]; 
         
         // Pares para la actividad de emparejamiento
@@ -705,7 +668,7 @@
             if (correctCount === totalBlanks) {
                 resultMessage.textContent = '¡Felicidades! Todas las respuestas son correctas. 🎉';
                 resultMessage.style.color = 'green';
-                showSuccessModal('¡Rellenado Completo!', '¡Has completado la actividad de rellenar espacios!');
+                launchFireworks(); 
             } else {
                 resultMessage.textContent = `Tienes ${correctCount} de ${totalBlanks} respuestas correctas. ¡Sigue practicando!`;
                 resultMessage.style.color = 'red';
@@ -785,7 +748,7 @@
                     if (matchedPairsCount === matchPairs.length) {
                         document.getElementById('match-result').textContent = '¡Juego completo! Excelente. 🎉';
                         document.getElementById('match-result').style.color = 'green';
-                        showSuccessModal('¡Juego de Pares Terminado!', '¡Has emparejado todas las palabras correctamente!');
+                        launchFireworks(); 
                     }
                 } else {
                     const tempEnCard = selectedEnglishCard;
@@ -850,16 +813,6 @@
             
             // Reemplazar el título estático con el primer consejo
             updateDailyTip();
-
-            // Lógica para cerrar el modal
-            document.getElementById('close-modal-btn').addEventListener('click', hideSuccessModal);
-            
-            // Lógica para cerrar el modal haciendo clic en el fondo
-            document.getElementById('success-modal').addEventListener('click', function(e) {
-                if (e.target.id === 'success-modal') {
-                    hideSuccessModal();
-                }
-            });
         });
 
     </script>
