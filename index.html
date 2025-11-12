@@ -555,14 +555,17 @@
             }
         }
 
+
         // --- LÓGICA DE ACTIVIDADES INTERACTIVAS ---
 
+        // Palabras para arrastrar (incluyendo las correctas y las de distracción con "breakfast")
         const fillInWordsBank = [
             "night", "hipsters", "fun", "night", "dancing", "happy", 
             "night", "deadlines", "you", "22", "right", "dancing",
-            "miserable", "magical", "forget", "want", "keep"
+            "miserable", "magical", "forget", "want", "keep", "breakfast" // <-- "breakfast" incluido
         ]; 
         
+        // Pares para la actividad de emparejamiento
         const matchPairs = [
             { en: "night", es: "noche" },
             { en: "friends", es: "amigos" },
@@ -610,9 +613,8 @@
                 zone.addEventListener('drop', drop);
                 zone.addEventListener('dragleave', dragLeave);
                 
-                // Lógica para devolver palabra al banco haciendo clic en la zona de soltar (CORREGIDA)
+                // Lógica para devolver palabra al banco haciendo clic en la zona de soltar
                 zone.addEventListener('click', function(e) {
-                    // Determina si el clic fue en la zona o en la palabra soltada
                     let targetZone = e.currentTarget; 
                     if (e.target.classList.contains('dropped')) {
                         targetZone = e.target.parentElement;
@@ -623,17 +625,15 @@
                     if (droppedWordElement) {
                         const wordText = droppedWordElement.textContent.trim();
                         
-                        // 1. Eliminar la palabra del drop-zone (limpia la zona)
                         targetZone.innerHTML = '';
                         targetZone.classList.remove('correct', 'incorrect');
                         
-                        // 2. Buscar el elemento original en el banco, hacerlo visible y ELIMINAR LA CLASE 'hide'
                         const originalWord = document.querySelector(`.draggable-word[data-word="${wordText}"].used`);
                         
                         if (originalWord) {
                             originalWord.style.visibility = 'visible';
                             originalWord.classList.remove('used');
-                            originalWord.classList.remove('hide'); // <--- ¡CORRECCIÓN APLICADA!
+                            originalWord.classList.remove('hide'); 
                         }
                     }
                 });
